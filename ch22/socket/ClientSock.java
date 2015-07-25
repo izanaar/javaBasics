@@ -6,7 +6,11 @@ import java.net.Socket;
 
 public class ClientSock {
     public static void main(String[] args) throws IOException {
-        Socket socket = new Socket(InetAddress.getLocalHost(),6666);
+        byte[] rem = new byte[]{(byte)192,(byte)168,(byte)1,(byte)217};
+        InetAddress remoteAddr = InetAddress.getByAddress(rem);
+        int remotePort = 6862;
+        System.out.println("Attempting to connect.");
+        Socket socket = new Socket(remoteAddr,remotePort);
         System.out.println(socket.isConnected());
     }
 }
