@@ -6,7 +6,7 @@ import java.net.Socket;
 
 public class ServSock {
     public static void main(String[] args) throws IOException, InterruptedException {
-        ServerSocket ss = new ServerSocket(6666);
+        ServerSocket ss = new ServerSocket(6862);
         System.out.println("Waiting for clients on port " + ss.getLocalPort());
         Socket socket = ss.accept();
         System.out.println("We've got a client!");
