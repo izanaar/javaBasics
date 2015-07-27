@@ -9,10 +9,10 @@ import java.net.Socket;
 
 public class ClientSock {
     public static void main(String[] args) throws IOException {
-        /*byte[] rem = new byte[]{(byte)192,(byte)168,(byte)1,(byte)217};
+        byte[] rem = new byte[]{(byte)192,(byte)168,(byte)1,(byte)217};
         InetAddress remoteAddr = InetAddress.getByAddress(rem);
-        */
-        InetAddress remoteAddr = InetAddress.getLocalHost();
+
+        //InetAddress remoteAddr = InetAddress.getLocalHost();
         int remotePort = 6862;
         System.out.println("Attempting to connect.");
         Socket socket = new Socket(remoteAddr,remotePort);
@@ -21,14 +21,18 @@ public class ClientSock {
 
         PrintWriter pw = new PrintWriter(socket.getOutputStream(),true);
         BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        BufferedReader keyIn = new BufferedReader(new InputStreamReader(System.in));
 
-        String message = "Hello, server, It's your client speaking!";
+        String respond;
+        System.out.println("Servers says: " + br.readLine());
 
-        pw.println("228");
+        do{
+            System.out.print("Type your message: ");
+            pw.println(keyIn.readLine());
+            System.out.print("Your message sent. Server answers: ");
+            respond = br.readLine();
+            System.out.println(respond);
+        }while (!respond.equals("Acknowledge, over."));
 
-        System.out.println("Server speaks: " + br.readLine());
-        System.out.println("We'll try to answer...");
-        pw.println(message);
-        System.out.println("Answer sent.");
     }
 }

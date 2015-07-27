@@ -18,12 +18,22 @@ public class ServSock {
 
         PrintWriter pw = new PrintWriter(socket.getOutputStream(),true);
         BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        BufferedReader keyIn = new BufferedReader(new InputStreamReader(System.in));
 
-        pw.println("Ready to transmit. Type \'over\' to break connection.");
 
-        while (!(message = br.readLine()).equals("over")){
-            System.out.println("[" + new Date() + "] " +br.readLine());
+        pw.println("Ready to transmit. Type \'over.\' to break connection.");
 
-        }
+        do{
+            message = br.readLine();
+            System.out.println("[" + new Date() + "] client says: " + message);
+            if(message.endsWith("over."))
+                break;
+            System.out.print("Your answer: ");
+            pw.println(keyIn.readLine());
+            System.out.println("Message sent.");
+        }while (true);
+        System.out.print("Finishing transmit...");
+        pw.println("Acknowledge, over.");
+        System.out.println("Client informded.");
     }
 }
