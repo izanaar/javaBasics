@@ -1,9 +1,12 @@
 package ch22.socket;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
+import java.util.Date;
 
 public class ServSock {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -11,20 +14,16 @@ public class ServSock {
         System.out.println("Waiting for clients on port " + ss.getLocalPort());
         Socket socket = ss.accept();
         System.out.println("We've got a client!");
-        Thread.sleep(2000);
+        String message = "Hello, client.", respond;
 
+        PrintWriter pw = new PrintWriter(socket.getOutputStream(),true);
         BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-        Scanner sc = new Scanner(System.in);
 
+        pw.println("Ready to transmit. Type \'over\' to break connection.");
 
-        String message, respond;
-        do{
-            System.out.print("Type your message: ");
-            message = sc.nextLine();
-            pw.print(message);
-            respond = br.readLine();
+        while (!(message = br.readLine()).equals("over")){
+            System.out.println("[" + new Date() + "] " +br.readLine());
 
-        }while (!respond.equals("over"));
+        }
     }
 }
