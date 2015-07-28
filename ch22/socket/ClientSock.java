@@ -9,7 +9,7 @@ import java.net.Socket;
 
 public class ClientSock {
     public static void main(String[] args) throws IOException {
-        byte[] rem = new byte[]{(byte)192,(byte)168,(byte)1,(byte)217};
+        byte[] rem = new byte[]{(byte)192,(byte)168,(byte)1,(byte)180};
         InetAddress remoteAddr = InetAddress.getByAddress(rem);
 
         //InetAddress remoteAddr = InetAddress.getLocalHost();
