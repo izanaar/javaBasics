@@ -8,5 +8,6 @@ public class MySemaphore {
         System.out.println("Available before relase: " + s.availablePermits());
         s.release(4);
         System.out.println("Available after relase: " + s.availablePermits());
+        System.out.println(9%4);
     }
 }
