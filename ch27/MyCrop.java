@@ -54,7 +54,6 @@ public class MyCrop extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
-
     private void crop(){
         if(cropped == null) {
             cropped = new Image[subImgs * subImgs];
@@ -95,7 +94,7 @@ public class MyCrop extends JFrame {
 
     public static void main(String[] args) {
         try {
-            new MyCrop(ImageIO.read(new File("/home/traum/Pictures/MVLd1AtIIBM.jpg")),2);
+            new MyCrop(ImageIO.read(new File("/home/traum/Pictures/MVLd1AtIIBM.jpg")),8);
         } catch (IOException e) {
             System.out.println(e);
         }
