@@ -71,10 +71,10 @@ public class MyCrop extends JFrame {
     }
 
     private void repaintCropped(Graphics g){
-        int c1 = rnd.nextInt(15), c2;
+        int c1 = rnd.nextInt(subImgs*subImgs-1), c2;
 
         do{
-            c2 = rnd.nextInt(15);
+            c2 = rnd.nextInt(subImgs*subImgs-1);
         }while (c2 == c1);
 
         switchCropImgs(c1,c2);
@@ -98,6 +98,7 @@ public class MyCrop extends JFrame {
 
     private void paintSource(Graphics g){
         g.drawImage(source,0,0,null);
+        crop();
     }
 
     class coord{
@@ -106,7 +107,7 @@ public class MyCrop extends JFrame {
 
     public static void main(String[] args) {
         try {
-            new MyCrop(ImageIO.read(new File("/home/traum/Pictures/MVLd1AtIIBM.jpg")),4);
+            new MyCrop(ImageIO.read(new File("/home/traum/Pictures/MVLd1AtIIBM.jpg")),8);
         } catch (IOException e) {
             System.out.println(e);
         }
