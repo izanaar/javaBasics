@@ -25,14 +25,23 @@ public class Main {
             logger.info("Message from another thread.");
         },"log-thread").start();
 
+
         CustomObject object = new CustomObject();
 
         //logger.debug("The entry is {}", object);
 
-        //logger.debug("The entry is " + object);
+        logger.info("The entry is " + object);
 
         LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
         //StatusPrinter.print(lc);
+
+        Thread killableThread = new Thread(() ->{
+            object.toString();
+        },"thread to kill");
+
+        killableThread.start();
+
+        killableThread.interrupt();
 
         System.out.println("Progam execution took " + (new Date().getTime() - initTime) + " milliseconds.");
     }

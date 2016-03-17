@@ -41,11 +41,13 @@ public class CustomObject {
     @Override
     public String toString() {
         try {
+            logger.info("The thread has been forced to sleep in 10 seconds.");
             Thread.sleep(1000);
         } catch (InterruptedException e) {
+            logger.error("The thread will not wake up.");
             logger.error(Arrays.toString(e.getStackTrace()));
         }
-
+        logger.info("The thread has woke up.");
         return "{" + id + "; " + message + "}";
     }
 }
