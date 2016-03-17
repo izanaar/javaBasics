@@ -1,13 +1,18 @@
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.LoggerContext;
+import chk.CustomObject;
 import org.slf4j.LoggerFactory;
+
+import java.util.Date;
 
 public class Main {
 
     static Logger logger = (Logger) LoggerFactory.getLogger("main");
 
     public static void main(String[] args) {
+        long initTime = new Date().getTime();
+
         logger.info("Logger says hello, mfcker.");
 
         logger.setLevel(Level.INFO);
@@ -20,9 +25,17 @@ public class Main {
             logger.info("Message from another thread.");
         },"log-thread").start();
 
+        CustomObject object = new CustomObject();
+
+        //logger.debug("The entry is {}", object);
+
+        //logger.debug("The entry is " + object);
+
         LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
         //StatusPrinter.print(lc);
 
-
+        System.out.println("Progam execution took " + (new Date().getTime() - initTime) + " milliseconds.");
     }
+
+
 }
