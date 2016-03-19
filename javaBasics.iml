@@ -4,10 +4,6 @@
     <output url="file://$MODULE_DIR$/jsp/out" />
     <output-test url="file://$MODULE_DIR$/jsp/out" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/out" />
-    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
