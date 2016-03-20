@@ -23,10 +23,8 @@ public class PracticeAggregate {
 
         length.ifPresent(val-> System.out.println("Sentence's length by mat/string: " + val));
 
-        Arrays.stream(wordsArr).reduce(String::concat).map(String::length).ifPresent( val->  System.out.println("Sentence's length by string length: " + val));
-
-
-
-
+        Arrays.stream(wordsArr).reduce(String::concat)
+                .map(String::length)
+                .ifPresent( val->  System.out.println("Sentence's length by string length: " + val));
     }
 }
