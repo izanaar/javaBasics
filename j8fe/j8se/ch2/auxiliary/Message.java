@@ -1,19 +1,19 @@
 package j8se.ch2.auxiliary;
 
-public class Entry{
+public class Message {
     private int id;
     private String text;
 
-    public Entry() {
+    public Message() {
     }
 
 
-    public Entry(int id, String text) {
+    public Message(int id, String text) {
         this.id = id;
         this.text = text;
     }
 
-    public Entry(String text) {
+    public Message(String text) {
         this.text = text;
     }
 
@@ -27,6 +27,6 @@ public class Entry{
 
     @Override
     public String toString() {
-        return "entry " + id + " contents: " + text + ";";
+        return "message " + id + " contents: " + text + ";";
     }
 }

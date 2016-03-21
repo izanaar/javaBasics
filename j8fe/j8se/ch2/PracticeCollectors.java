@@ -1,6 +1,6 @@
 package j8se.ch2;
 
-import j8se.ch2.auxiliary.Entry;
+import j8se.ch2.auxiliary.Message;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -19,7 +19,7 @@ public class PracticeCollectors {
 
         Random rnd = new Random(new Date().getTime());
 
-        Map<Integer, String> map = getSentenceFragments().map((text) -> new Entry(rnd.nextInt(), text)).collect(Collectors.toMap(Entry::getId, Entry::getText));
+        Map<Integer, String> map = getSentenceFragments().map((text) -> new Message(rnd.nextInt(), text)).collect(Collectors.toMap(Message::getId, Message::getText));
 
         map.entrySet().stream().forEach(System.out::println);
 
