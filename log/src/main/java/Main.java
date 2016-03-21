@@ -1,25 +1,20 @@
 import ch.qos.logback.classic.Logger;
+import chk.Descendant;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Objects;
 
 public class Main {
 
-    static Logger logger = (Logger) LoggerFactory.getLogger("main");
+    static Logger     root = (Logger) LoggerFactory.getLogger("ROOT"),
+                    logger = (Logger) LoggerFactory.getLogger(Main.class),
+                descendant = (Logger) LoggerFactory.getLogger(Descendant.class);
+
 
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        String line;
-        while (!Objects.equals(line = reader.readLine(), "")){
-            logger.info("User says: " + line);
-
-        }
-
+        System.out.println("root level: " + root.getLevel());
+        System.out.println("main level: " + logger.getLevel());
+        System.out.println("desc level: " + descendant.getEffectiveLevel());
     }
 
 }

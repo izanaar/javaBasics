@@ -12,6 +12,8 @@ public class PracticeOptional {
         Optional<String> emptyOptional = Optional.empty(),
                 correctOptional = Optional.of("Correct optional");
 
+        System.out.println("Adding result: " + correctOptional.map(processedOptionals::add).get());
+
         //correctOptional.ifPresent(processedOptionals::add);
         System.out.println(emptyOptional.map(processedOptionals::add).isPresent());
 
