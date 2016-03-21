@@ -2,22 +2,48 @@ package j8se.ch2;
 
 import j8se.ch2.auxiliary.Message;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CollectToMap {
     public static void main(String[] args) {
-        List<Message> messages = createEntries(5);
+        getMessages(5).stream().collect(
+                Collectors.toMap(Message::getId, Message::getText)
+        ).entrySet().forEach(System.out::println);
+
+        getMessages(5).stream().collect(
+                Collectors.toMap(Message::getId, Function.identity())
+        ).entrySet().forEach(System.out::println);
+
+        List<Message> messages = getMessages(3);
+        messages.add(new Message(messages.get(2).getId(), messages.get(2).getText()));
+        messages.get(messages.size() - 1).setText("Message X");
         messages.forEach(System.out::println);
+
+        messages.stream()
+                .collect(Collectors.toMap(
+                        Message::getId, Message::getText,
+                        (exst, nval) -> nval
+                )).entrySet().forEach(System.out::println);
+
+        Map<Integer,Set<String>> map = messages.stream()
+                .collect(Collectors.toMap(
+                        Message::getId,
+                        Collections.singleton(Message::getId),
+                        (exst,newv) ->{
+                            Set<String> mrgd = new HashSet<>(exst);
+                            mrgd.addAll(newv);
+                            return mrgd;
+                        }
+
+                ));
     }
 
-    private static List<Message> createEntries(int amount) {
+    private static List<Message> getMessages(int amount) {
         return Stream
-                .iterate(new Message(1, "Message 1"),CollectToMap::createNext)
+                .iterate(new Message(1, "Message 1"), CollectToMap::createNext)
                 .limit(amount).collect(Collectors.toList());
     }
 

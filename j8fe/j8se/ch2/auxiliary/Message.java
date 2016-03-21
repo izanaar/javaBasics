@@ -25,6 +25,10 @@ public class Message {
         return text;
     }
 
+    public void setText(String text){
+        this.text = text;
+    }
+
     @Override
     public String toString() {
         return "message " + id + " contents: " + text + ";";
