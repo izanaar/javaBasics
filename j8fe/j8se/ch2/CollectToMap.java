@@ -28,7 +28,7 @@ public class CollectToMap {
                         (exst, nval) -> nval
                 )).entrySet().forEach(System.out::println);
 
-        Map<Integer,Set<String>> map = messages.stream()
+        /*Map<Integer,Set<String>> map = messages.stream()
                 .collect(Collectors.toMap(
                         Message::getId,
                         Collections.singleton(Message::getId),
@@ -38,7 +38,7 @@ public class CollectToMap {
                             return mrgd;
                         }
 
-                ));
+                ));*/
     }
 
     private static List<Message> getMessages(int amount) {
