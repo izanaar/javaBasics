@@ -1,4 +1,4 @@
-package j8se.ch2;
+package j8se.ch2.practice;
 
 import java.util.Optional;
 

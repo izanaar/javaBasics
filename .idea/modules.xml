@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/j8fe/j8fe.iml" filepath="$PROJECT_DIR$/j8fe/j8fe.iml" />
-      <module fileurl="file://$PROJECT_DIR$/javaBasics.iml" filepath="$PROJECT_DIR$/javaBasics.iml" />
       <module fileurl="file://$PROJECT_DIR$/jsp/jsp.iml" filepath="$PROJECT_DIR$/jsp/jsp.iml" />
       <module fileurl="file://$PROJECT_DIR$/log/log.iml" filepath="$PROJECT_DIR$/log/log.iml" />
     </modules>

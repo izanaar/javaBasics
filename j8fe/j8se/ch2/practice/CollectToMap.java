@@ -1,4 +1,4 @@
-package j8se.ch2;
+package j8se.ch2.practice;
 
 import j8se.ch2.auxiliary.Message;
 
@@ -22,15 +22,15 @@ public class CollectToMap {
         messages.get(messages.size() - 1).setText("Message X");
         messages.forEach(System.out::println);
 
-        messages.stream()
+        /*Map<Integer, messages.stream()
                 .collect(Collectors.toMap(
                         Message::getId, Message::getText,
                         (exst, nval) -> nval
                 )).entrySet().forEach(System.out::println);
 
-        /*Map<Integer,Set<String>> map = messages.stream()
+        Map<Integer,Set<String>> map = messages.stream()
                 .collect(Collectors.toMap(
-                        Message::getId,
+                        ,
                         Collections.singleton(Message::getId),
                         (exst,newv) ->{
                             Set<String> mrgd = new HashSet<>(exst);
