@@ -8,5 +8,6 @@
 ${greeting}<br>
 ${prop1}<br>
 ${overriden}<br>
+${messageText}
 </body>
 </html>
