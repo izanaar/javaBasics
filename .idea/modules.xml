@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/boot/boot.iml" filepath="$PROJECT_DIR$/boot/boot.iml" />
       <module fileurl="file://$PROJECT_DIR$/j8fe/j8fe.iml" filepath="$PROJECT_DIR$/j8fe/j8fe.iml" />
-      <module fileurl="file://$PROJECT_DIR$/javaBasics.iml" filepath="$PROJECT_DIR$/javaBasics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsonPractice/jsonPractice.iml" filepath="$PROJECT_DIR$/jsonPractice/jsonPractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsp/jsp.iml" filepath="$PROJECT_DIR$/jsp/jsp.iml" />
       <module fileurl="file://$PROJECT_DIR$/log/log.iml" filepath="$PROJECT_DIR$/log/log.iml" />
     </modules>
   </component>
