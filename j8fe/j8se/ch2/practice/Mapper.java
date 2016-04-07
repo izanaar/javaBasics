@@ -1,4 +1,4 @@
-package j8se.ch2;
+package j8se.ch2.practice;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -30,6 +30,20 @@ public class Mapper {
         );
 
 
+
+        Stream<String> stringStream = Arrays.stream(new String[]{"en-ru","en-cn","ru-en"});
+
+        Map<String, Set<String>> stringSets = stringStream.collect(
+                Collectors.toMap(
+                        s -> s.substring(0, s.indexOf('-')),
+                        l -> Collections.singleton(l.substring(l.indexOf('-') + 1)),
+                        (a,b) ->{
+                            Set<String> r = new HashSet<>(a);
+                            r.addAll(b);
+                            return r;
+                        }
+                )
+        );
 
     }
 }
