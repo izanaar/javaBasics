@@ -28,20 +28,22 @@ public class CollectToMap {
                         (exst, nval) -> nval
                 )).entrySet().forEach(System.out::println);
 
-        /*Map<Integer,Set<String>> map = messages.stream()
+        Map<Integer,Set<String>> map = messages.stream()
                 .collect(Collectors.toMap(
                         Message::getId,
-                        Message::getText,
+                        l -> Collections.singleton(l.getText()),
                         (exst,newv) ->{
                             Set<String> mrgd = new HashSet<>(exst);
                             mrgd.addAll(newv);
                             return mrgd;
                         }
 
-                ));*/
+                ));
+
+        int v = 2;
     }
 
-    private static List<Message> getMessages(int amount) {
+    public static List<Message> getMessages(int amount) {
         return Stream
                 .iterate(new Message(1, "Message 1"), CollectToMap::createNext)
                 .limit(amount).collect(Collectors.toList());
