@@ -1,10 +1,12 @@
 package soundsystem;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ConditionContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -29,17 +31,23 @@ public class CdPlayerTest {
     @Autowired
     CompactDisc cd;
 
+    @Before
+    public void setUp() throws Exception {
+        System.setProperty("sprop", "system property value");
+     /*   System.out.println(context.getEnvironment().getProperty("sprop"));.setProperty("sprop","system property value");*/
+    }
+
     @Test
-    public void contextLoads(){
+    public void contextLoads() {
         assertNotNull(cd);
     }
 
     @Test
-    public void testPlay(){
+    public void testPlay() {
         player.play();
         assertEquals(
-               "I'm fine without you now, I've given you my heart.\n",
-               systemOutRule.getLog());
+                "I'm fine without you now, I've given you my heart.\n",
+                systemOutRule.getLog());
     }
 
 }
