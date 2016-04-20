@@ -2,9 +2,11 @@ package soundsystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import soundsystem.interfaces.CompactDisc;
+import soundsystem.interfaces.MediaPlayer;
 
 @Component
-class CdPlayer implements MediaPlayer{
+public class CdPlayer implements MediaPlayer {
 
     private CompactDisc cd;
 

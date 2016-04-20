@@ -8,14 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import soundsystem.config.SoundSystemConfig;
+import soundsystem.interfaces.CompactDisc;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = CdPlayerConfig.class)
-@ActiveProfiles("metalcore")
+@ContextConfiguration(classes = SoundSystemConfig.class)
+@ActiveProfiles("trance")
 public class CdPlayerTest {
 
     @Rule
