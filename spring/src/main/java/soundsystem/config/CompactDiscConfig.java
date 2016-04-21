@@ -1,22 +1,24 @@
 package soundsystem.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import soundsystem.Fever;
-import soundsystem.Imagine;
-import soundsystem.conditions.TranceCDCondition;
+
+import org.springframework.context.annotation.*;
+import soundsystem.cd.Fever;
+import soundsystem.cd.Imagine;
+import soundsystem.cd.Unforgivable;
+import soundsystem.conditions.ImagineCDCondition;
 import soundsystem.interfaces.CompactDisc;
 
 @Configuration
 public class CompactDiscConfig {
 
     @Bean
-    @Conditional(TranceCDCondition.class)
-    public CompactDisc tranceCompactDisc(){
+    @Conditional(ImagineCDCondition.class)
+    public CompactDisc imagineCompactDisc(){
         return new Imagine();
     }
+
+    @Bean
+    public CompactDisc unforgivableCompactDisc(){return new Unforgivable();}
 
     @Bean
     @Profile("metalcore")

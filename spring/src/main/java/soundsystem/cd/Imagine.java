@@ -1,4 +1,4 @@
-package soundsystem;
+package soundsystem.cd;
 
 import org.springframework.stereotype.Component;
 import soundsystem.interfaces.CompactDisc;

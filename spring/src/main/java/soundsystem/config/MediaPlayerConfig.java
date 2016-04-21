@@ -1,8 +1,8 @@
 package soundsystem.config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import soundsystem.CdPlayer;
 import soundsystem.interfaces.CompactDisc;
 import soundsystem.interfaces.MediaPlayer;
@@ -11,8 +11,8 @@ import soundsystem.interfaces.MediaPlayer;
 public class MediaPlayerConfig {
 
     @Bean
-    public MediaPlayer mediaPlayer(CompactDisc compactDisc){
-        return new CdPlayer(compactDisc);
+    public MediaPlayer mediaPlayer(){
+        return new CdPlayer();
     }
 
 }

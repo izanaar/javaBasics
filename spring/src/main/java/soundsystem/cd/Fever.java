@@ -1,4 +1,4 @@
-package soundsystem;
+package soundsystem.cd;
 
 import soundsystem.interfaces.CompactDisc;
 
