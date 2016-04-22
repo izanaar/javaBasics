@@ -1,6 +1,6 @@
 package bakery.desserts;
 
-import bakery.Dessert;
+import bakery.intrface.Dessert;
 import org.springframework.stereotype.Component;
 
 @Component

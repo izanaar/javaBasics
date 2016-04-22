@@ -1,14 +1,16 @@
-package bakery;
+package bakery.config;
 
+import bakery.Bakery;
+import bakery.Taster;
 import bakery.desserts.Cake;
+import bakery.intrface.Dessert;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
-@ComponentScan(basePackageClasses = Dessert.class)
+@ComponentScan(basePackageClasses = Bakery.class)
 public class BakeryConfig {
 
-    @Bean
+    /*@Bean
     public Taster getTaster(){
         return new Taster();
     }
@@ -17,5 +19,5 @@ public class BakeryConfig {
     public Dessert getCake(){
         return new Cake();
     }
-
+*/
 }
