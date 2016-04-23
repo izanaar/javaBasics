@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = SoundSystemConfig.class)
 @TestPropertySource(value="classpath:test.properties")
-@ActiveProfiles("trance")
+@ActiveProfiles("metalcore")
 public class CdPlayerTest {
 
     @Rule
@@ -36,7 +36,7 @@ public class CdPlayerTest {
     MediaPlayer player2;
 
     @Autowired
-    @Qualifier("unforgivableCompactDisc")
+    @Qualifier("metalcoreCompactDisc")
     CompactDisc cd;
 
     @Before
@@ -58,6 +58,12 @@ public class CdPlayerTest {
                 "Playing Imagine by Ferry Corsten.\n",
                 systemOutRule.getLog());
         assertNotSame(player.getCompactDisk(), player2.getCompactDisk());
+    }
+
+    @Test
+    public void testValueAnnotation(){
+        assertEquals("Bullet for my Valentine",cd.getArtist());
+        assertEquals("Fever",cd.getTitle());
     }
 
 }
