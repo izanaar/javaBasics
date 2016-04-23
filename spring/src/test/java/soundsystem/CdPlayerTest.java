@@ -12,9 +12,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import soundsystem.config.SoundSystemConfig;
 import soundsystem.interfaces.CompactDisc;
+import soundsystem.interfaces.MediaPlayer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -26,7 +26,12 @@ public class CdPlayerTest {
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
 
     @Autowired
-    CdPlayer player;
+    @Qualifier("first")
+    MediaPlayer player;
+
+    @Autowired
+    @Qualifier("second")
+    MediaPlayer player2;
 
     @Autowired
     @Qualifier("unforgivableCompactDisc")
@@ -50,6 +55,7 @@ public class CdPlayerTest {
         assertEquals(
                 "I'm fine without you now, I've given you my heart.\n",
                 systemOutRule.getLog());
+        assertNotSame(player.getCompactDisk(), player2.getCompactDisk());
     }
 
 }

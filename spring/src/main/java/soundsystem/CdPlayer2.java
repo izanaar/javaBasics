@@ -3,7 +3,7 @@ package soundsystem;
 import soundsystem.interfaces.CompactDisc;
 import soundsystem.interfaces.MediaPlayer;
 
-public class CdPlayer implements MediaPlayer {
+public class CdPlayer2 implements MediaPlayer{
 
     private CompactDisc cd;
 
@@ -14,7 +14,7 @@ public class CdPlayer implements MediaPlayer {
     }
 */
 
-    public CdPlayer(CompactDisc cd) {
+    public CdPlayer2(CompactDisc cd) {
         this.cd = cd;
     }
 
@@ -23,9 +23,7 @@ public class CdPlayer implements MediaPlayer {
         cd.play();
     }
 
-    @Override
     public CompactDisc getCompactDisk() {
         return cd;
     }
-
 }
