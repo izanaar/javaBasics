@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import soundsystem.config.SoundSystemConfig;
 import soundsystem.interfaces.CompactDisc;
@@ -19,6 +20,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = SoundSystemConfig.class)
+@TestPropertySource(value="classpath:test.properties")
 @ActiveProfiles("trance")
 public class CdPlayerTest {
 
@@ -53,7 +55,7 @@ public class CdPlayerTest {
     public void testPlay() {
         player.play();
         assertEquals(
-                "I'm fine without you now, I've given you my heart.\n",
+                "Playing Imagine by Ferry Corsten.\n",
                 systemOutRule.getLog());
         assertNotSame(player.getCompactDisk(), player2.getCompactDisk());
     }

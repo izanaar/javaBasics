@@ -20,7 +20,7 @@ public class CdPlayer implements MediaPlayer {
 
     @Override
     public void play(){
-        cd.play();
+        System.out.println("Playing " + cd.getArtist() + " by " + cd.getTitle() + ".");
     }
 
     @Override

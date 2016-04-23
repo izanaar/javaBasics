@@ -8,4 +8,14 @@ public class Unforgivable implements CompactDisc{
     public void play() {
         System.out.println("But it ain't over till its over but I won't be made a fool");
     }
+
+    @Override
+    public String getArtist() {
+        return "Armin van Buuren";
+    }
+
+    @Override
+    public String getTitle() {
+        return "Unforgivable";
+    }
 }

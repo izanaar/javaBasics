@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import soundsystem.CdPlayer;
+import soundsystem.CdPlayer2;
 import soundsystem.interfaces.CompactDisc;
 import soundsystem.interfaces.MediaPlayer;
 
@@ -21,6 +22,6 @@ public class MediaPlayerConfig {
     @Bean
     @Qualifier("second")
     public MediaPlayer getCdPlayer2(@Qualifier("imagineCompactDisc") CompactDisc cd){
-        return new CdPlayer(cd);
+        return new CdPlayer2(cd);
     }
 }
