@@ -11,8 +11,8 @@ import soundsystem.interfaces.MediaPlayer;
 public class MediaPlayerConfig {
 
     @Bean
-    public MediaPlayer mediaPlayer(){
-        return new CdPlayer();
+    public MediaPlayer getCdPlayer(@Qualifier("imagineCompactDisc") CompactDisc cd){
+        return new CdPlayer(cd);
     }
 
 }

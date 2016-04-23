@@ -1,9 +1,7 @@
 package soundsystem.cd;
 
-import org.springframework.stereotype.Component;
 import soundsystem.interfaces.CompactDisc;
 
-/*@Component*/
 public class Unforgivable implements CompactDisc{
 
     @Override

@@ -1,6 +1,7 @@
 package soundsystem.config;
 
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
 import soundsystem.cd.Fever;
 import soundsystem.cd.Imagine;
@@ -12,7 +13,6 @@ import soundsystem.interfaces.CompactDisc;
 public class CompactDiscConfig {
 
     @Bean
-    @Conditional(ImagineCDCondition.class)
     public CompactDisc imagineCompactDisc(){
         return new Imagine();
     }
