@@ -18,7 +18,7 @@ public class Imagine implements CompactDisc {
         this.title = title;
     }
 
-    public Imagine(String title, String artist) {
+    public Imagine(String artist, String title) {
         this.artist = artist;
         this.title = title;
     }

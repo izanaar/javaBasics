@@ -39,6 +39,10 @@ public class CdPlayerTest {
     @Qualifier("metalcoreCompactDisc")
     CompactDisc cd;
 
+    @Autowired
+    @Qualifier("unforgivableCompactDisc")
+    CompactDisc unforgivable;
+
     @Before
     public void setUp() throws Exception {
         System.setProperty("sprop", "system property value");
@@ -64,6 +68,11 @@ public class CdPlayerTest {
     public void testValueAnnotation(){
         assertEquals("Bullet for my Valentine",cd.getArtist());
         assertEquals("Fever",cd.getTitle());
+    }
+
+    @Test
+    public void testSPEL(){
+        assertEquals("Ferry Corsten",unforgivable.getArtist());
     }
 
 }
