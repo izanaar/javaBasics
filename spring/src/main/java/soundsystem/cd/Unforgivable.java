@@ -1,8 +1,18 @@
 package soundsystem.cd;
 
+import org.springframework.beans.factory.annotation.Value;
 import soundsystem.interfaces.CompactDisc;
 
 public class Unforgivable implements CompactDisc{
+
+    @Value("#{imagineCompactDisc.artist}")
+    private String artist;
+
+    private String title;
+
+    public Unforgivable() {
+        title = "Unforgivable";
+    }
 
     @Override
     public void play() {
@@ -11,11 +21,11 @@ public class Unforgivable implements CompactDisc{
 
     @Override
     public String getArtist() {
-        return "Armin van Buuren";
+        return artist;
     }
 
     @Override
     public String getTitle() {
-        return "Unforgivable";
+        return title;
     }
 }
