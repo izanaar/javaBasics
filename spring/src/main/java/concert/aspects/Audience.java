@@ -1,4 +1,4 @@
-package concert;
+package concert.aspects;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -9,18 +9,19 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class Audience {
 
-    @Pointcut("execution(* concert.Performance.perform(..))")
-    public void performance() {}
+    @Pointcut("execution(* concert.interf.Performance.perform(String)) && args(songName)")
+    public void performance(String songName) {}
 
-    @Before("performance()")
-    public void silenceCellPhones(){
+/*    @Before("performance(songName)")
+    public void silenceCellPhones(String songName){
         System.out.println("Silencing cell phones before the performance.");
-    }
+    }*/
 
-    @Around("performance()")
-    public void wrapPerformance(ProceedingJoinPoint jp){
+    @Around("performance(songName)")
+    public void wrapPerformance(ProceedingJoinPoint jp, String songName){
         System.out.println("The performance has started!");
         try {
+            System.out.println("The band will be playing " + songName + ".");
             jp.proceed();
             System.out.println("The performance has ended.");
             jp.proceed();

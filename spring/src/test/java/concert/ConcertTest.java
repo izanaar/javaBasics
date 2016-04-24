@@ -1,5 +1,7 @@
 package concert;
 
+import concert.conf.ConcertConfig;
+import concert.interf.Performance;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,7 @@ public class ConcertTest {
     @Test
     public void testConcertInit(){
         assertNotNull(performance);
-        performance.perform();
+        performance.perform("Imperium");
     }
 
 }

@@ -1,5 +1,8 @@
-package concert;
+package concert.conf;
 
+import concert.aspects.Audience;
+import concert.band.MachineHead;
+import concert.interf.Performance;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -15,7 +18,7 @@ public class ConcertConfig {
 
     @Bean
     public Performance getPerformance(){
-        return new MachineHeadConcert();
+        return new MachineHead();
     }
 
 }
