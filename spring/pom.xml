@@ -20,21 +20,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>2.4</version>
-                    <configuration>
-                        <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                        <warName>Spring4MVCHelloWorldNoXMLDemo</warName>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <finalName>Spring4MVCHelloWorldNoXMLDemo</finalName>
     </build>
 
     <dependencies>
@@ -96,7 +81,6 @@
             <artifactId>tomcat-embed-core</artifactId>
             <version>RELEASE</version>
         </dependency>
-
     </dependencies>
 
 
