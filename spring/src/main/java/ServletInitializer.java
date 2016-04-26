@@ -1,8 +1,6 @@
-package web;
-
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-import web.config.RootConfig;
-import web.config.WebConfig;
+import config.RootConfig;
+import config.WebConfig;
 
 public class ServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
