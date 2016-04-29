@@ -19,6 +19,8 @@ public class FirstServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println(request.getHeader("User-Agent"));
+        System.out.println(request.getRemoteUser());
         GregorianCalendar gc = new GregorianCalendar();
         String timeJsp = request.getParameter("time");
         float delta = ((float)(gc.getTimeInMillis() - Long.parseLong(timeJsp)))/1_000;

@@ -6,6 +6,10 @@
     <servlet>
         <servlet-name>indexServlet</servlet-name>
         <servlet-class>servlet.FirstServlet</servlet-class>
+        <init-param>
+            <param-name>iparam1</param-name>
+            <param-value>Init param value</param-value>
+        </init-param>
     </servlet>
 
     <servlet-mapping>
