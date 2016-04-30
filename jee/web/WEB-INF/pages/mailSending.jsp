@@ -7,7 +7,7 @@
 <p>
     The message will be send from ${sender}
 </p>
-<form action="MailServlet" method="POST">
+<form action="/send_mail" method="POST">
     <table>
         <tr>
             <td>Send to:</td>
