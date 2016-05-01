@@ -1,6 +1,6 @@
-package plain.bakery;
+package bakery;
 
-import plain.bakery.config.BakeryConfig;
+import bakery.config.BakeryConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Bakery {

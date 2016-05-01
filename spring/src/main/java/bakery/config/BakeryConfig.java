@@ -1,7 +1,8 @@
-package plain.bakery.config;
+package bakery.config;
 
-import plain.bakery.Bakery;
+import bakery.Bakery;
 import org.springframework.context.annotation.ComponentScan;
+
 
 @ComponentScan(basePackageClasses = Bakery.class)
 public class BakeryConfig {

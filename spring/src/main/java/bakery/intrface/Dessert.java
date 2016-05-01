@@ -1,4 +1,4 @@
-package plain.bakery.intrface;
+package bakery.intrface;
 public interface Dessert {
     void introduce();
 }

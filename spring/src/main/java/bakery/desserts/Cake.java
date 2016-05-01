@@ -1,7 +1,8 @@
-package plain.bakery.desserts;
+package bakery.desserts;
 
-import plain.bakery.intrface.Dessert;
+import bakery.intrface.Dessert;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class Cake implements Dessert {

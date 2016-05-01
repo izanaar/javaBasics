@@ -20,6 +20,6 @@ public class Session implements HttpSessionListener {
 
     @Override
     public void sessionDestroyed(HttpSessionEvent httpSessionEvent) {
-        logger.info("Session has been destroyed: {}", httpSessionEvent.getSession().getId());
+        logger.info("The session {} has been destroyed.", httpSessionEvent.getSession().getId());
     }
 }
