@@ -23,4 +23,25 @@
         <param-name>cparam</param-name>
         <param-value>${CATALINA_HOME}</param-value>
     </context-param>
+
+
+    <servlet>
+        <servlet-name>old_style</servlet-name>
+        <jsp-file>/old_style.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>old_style</servlet-name>
+        <url-pattern>/old_style</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>new_style</servlet-name>
+        <jsp-file>/new_style.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>new_style</servlet-name>
+        <url-pattern>/new_style</url-pattern>
+    </servlet-mapping>
 </web-app>
