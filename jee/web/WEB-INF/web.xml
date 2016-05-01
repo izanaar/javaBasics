@@ -40,6 +40,17 @@
         <jsp-file>/new_style.jsp</jsp-file>
     </servlet>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/pages/errors/error404.jsp</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>javax.mail.MessagingException</exception-type>
+
+        <location>/WEB-INF/pages/errors/errorMessagingException.jsp</location>
+    </error-page>
+
     <servlet-mapping>
         <servlet-name>new_style</servlet-name>
         <url-pattern>/new_style</url-pattern>

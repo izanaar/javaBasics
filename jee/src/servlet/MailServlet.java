@@ -67,10 +67,14 @@ public class MailServlet extends HttpServlet {
 
         req.getRequestDispatcher("/WEB-INF/pages/mailSent.jsp").forward(req,resp);
 
-        sendEmail(to, subject, text);
+        try {
+            sendEmail(to, subject, text);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void sendEmail(String to, String subj, String text){
+    private void sendEmail(String to, String subj, String text) throws MessagingException {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -85,7 +89,7 @@ public class MailServlet extends HttpServlet {
                     }
                 });
 
-        try {
+
             // Create a default MimeMessage object.
             Message message = new MimeMessage(session);
 
@@ -108,8 +112,6 @@ public class MailServlet extends HttpServlet {
 
             System.out.println("Sent message successfully....");
 
-        } catch (MessagingException e) {
-            logger.error("Exception occurred while sending the email: {}", e.toString());
-        }
+
     }
 }

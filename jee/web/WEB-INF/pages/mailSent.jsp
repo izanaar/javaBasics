@@ -4,6 +4,6 @@
     <title>Title</title>
 </head>
 <body>
-    Your message for ${recipient} is being sent. <a href="index.jsp">To index page</a>
+    Your message for ${pageContext.request.getParameter("to")} is being sent. <a href="index.jsp">To index page</a>
 </body>
 </html>
