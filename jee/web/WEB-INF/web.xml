@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>indexServlet</servlet-name>
-        <servlet-class>servlet.FirstServlet</servlet-class>
+        <servlet-class>com.izanaar.servlet.FirstServlet</servlet-class>
         <init-param>
             <param-name>iparam1</param-name>
             <param-value>Init param value</param-value>
@@ -40,6 +40,15 @@
         <jsp-file>/new_style.jsp</jsp-file>
     </servlet>
 
+    <servlet-mapping>
+        <servlet-name>new_style</servlet-name>
+        <url-pattern>/new_style</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>2</session-timeout>
+    </session-config>
+
     <error-page>
         <error-code>404</error-code>
         <location>/WEB-INF/pages/errors/error404.jsp</location>
@@ -47,12 +56,6 @@
 
     <error-page>
         <exception-type>javax.mail.MessagingException</exception-type>
-
         <location>/WEB-INF/pages/errors/errorMessagingException.jsp</location>
     </error-page>
-
-    <servlet-mapping>
-        <servlet-name>new_style</servlet-name>
-        <url-pattern>/new_style</url-pattern>
-    </servlet-mapping>
 </web-app>
