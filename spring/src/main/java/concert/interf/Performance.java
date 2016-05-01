@@ -1,4 +1,4 @@
-package plain.concert.interf;
+package concert.interf;
 
 public interface Performance {
     void perform(String songName);

@@ -1,4 +1,4 @@
-package plain.concert.aspects;
+package concert.aspects;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -8,7 +8,7 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class Audience {
 
-    @Pointcut("execution(* plain.concert.interf.Performance.perform(String)) && args(songName)")
+    @Pointcut("execution(* concert.interf.Performance.perform(String)) && args(songName)")
     public void performance(String songName) {}
 
 /*    @Before("performance(songName)")

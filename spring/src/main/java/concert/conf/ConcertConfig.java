@@ -1,8 +1,9 @@
-package plain.concert.conf;
+package concert.conf;
 
-import plain.concert.aspects.Audience;
-import plain.concert.band.MachineHead;
-import plain.concert.interf.Performance;
+
+import concert.aspects.Audience;
+import concert.band.MachineHead;
+import concert.interf.Performance;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;

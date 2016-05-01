@@ -1,6 +1,6 @@
-package plain.concert.band;
+package concert.band;
 
-import plain.concert.interf.Performance;
+import concert.interf.Performance;
 
 public class MachineHead implements Performance {
 
