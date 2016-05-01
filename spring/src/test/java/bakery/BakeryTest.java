@@ -1,7 +1,8 @@
-package plain.bakery;
+package bakery;
 
-import plain.bakery.config.BakeryConfig;
-import plain.bakery.intrface.Dessert;
+
+import bakery.config.BakeryConfig;
+import bakery.intrface.Dessert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
