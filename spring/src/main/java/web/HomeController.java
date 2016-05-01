@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/")
-public class HelloController {
+public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public String sayHello(HttpServletResponse response) {
+    public String home() {
         return "home";
     }
 }
