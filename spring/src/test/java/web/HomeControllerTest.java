@@ -1,6 +1,6 @@
 package web;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
