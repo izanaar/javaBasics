@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+<com.spittr.web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/com.spittr.web-app_3_1.xsd"
          version="3.1">
     <display-name>Ubercool webapp</display-name>
 
-    <servlet>
-        <servlet-name>indexServlet</servlet-name>
-        <servlet-class>com.izanaar.servlet.FirstServlet</servlet-class>
+    <com.spittr.servlet>
+        <com.spittr.servlet-name>indexServlet</com.spittr.servlet-name>
+        <com.spittr.servlet-class>com.izanaar.com.spittr.servlet.FirstServlet</com.spittr.servlet-class>
         <init-param>
             <param-name>iparam1</param-name>
             <param-value>Init param value</param-value>
         </init-param>
-    </servlet>
+    </com.spittr.servlet>
 
-    <servlet-mapping>
-        <servlet-name>indexServlet</servlet-name>
+    <com.spittr.servlet-mapping>
+        <com.spittr.servlet-name>indexServlet</com.spittr.servlet-name>
         <url-pattern>/</url-pattern>
-    </servlet-mapping>
+    </com.spittr.servlet-mapping>
 
     <context-param>
         <param-name>cparam</param-name>
@@ -25,29 +25,29 @@
     </context-param>
 
 
-    <servlet>
-        <servlet-name>old_style</servlet-name>
+    <com.spittr.servlet>
+        <com.spittr.servlet-name>old_style</com.spittr.servlet-name>
         <jsp-file>/old_style.jsp</jsp-file>
-    </servlet>
+    </com.spittr.servlet>
 
-    <servlet-mapping>
-        <servlet-name>old_style</servlet-name>
+    <com.spittr.servlet-mapping>
+        <com.spittr.servlet-name>old_style</com.spittr.servlet-name>
         <url-pattern>/old_style</url-pattern>
-    </servlet-mapping>
+    </com.spittr.servlet-mapping>
 
-    <servlet>
-        <servlet-name>new_style</servlet-name>
+    <com.spittr.servlet>
+        <com.spittr.servlet-name>new_style</com.spittr.servlet-name>
         <jsp-file>/new_style.jsp</jsp-file>
-    </servlet>
+    </com.spittr.servlet>
 
-    <servlet-mapping>
-        <servlet-name>new_style</servlet-name>
+    <com.spittr.servlet-mapping>
+        <com.spittr.servlet-name>new_style</com.spittr.servlet-name>
         <url-pattern>/new_style</url-pattern>
-    </servlet-mapping>
+    </com.spittr.servlet-mapping>
 
-    <session-config>
+    <session-com.spittr.config>
         <session-timeout>2</session-timeout>
-    </session-config>
+    </session-com.spittr.config>
 
     <error-page>
         <error-code>404</error-code>
@@ -58,4 +58,4 @@
         <exception-type>javax.mail.MessagingException</exception-type>
         <location>/WEB-INF/pages/errors/errorMessagingException.jsp</location>
     </error-page>
-</web-app>
+</com.spittr.web-app>

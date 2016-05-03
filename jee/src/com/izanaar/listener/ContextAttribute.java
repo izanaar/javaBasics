@@ -14,7 +14,7 @@ public class ContextAttribute implements ServletContextAttributeListener{
 
     @Override
     public void attributeAdded(ServletContextAttributeEvent servletContextAttributeEvent) {
-        logger.trace("A new attribute has been added to the servlet {} context: {}-{}",
+        logger.trace("A new attribute has been added to the com.spittr.servlet {} context: {}-{}",
                 servletContextAttributeEvent.getServletContext().getServletContextName(),
                 servletContextAttributeEvent.getName(), servletContextAttributeEvent.getValue());
     }

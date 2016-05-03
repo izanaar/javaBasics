@@ -1,4 +1,4 @@
-package config;
+package com.spittr.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import web.HomeController;
+import com.spittr.web.HomeController;
 
 @Configuration
 @EnableWebMvc
@@ -43,7 +43,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         CommonsMultipartResolver multipartResolver =
                 new CommonsMultipartResolver();
         multipartResolver.setUploadTempDir(
-                new FileSystemResource("/tmp/spittr/uploads"));
+                new FileSystemResource("/tmp/com.spittr/uploads"));
         return multipartResolver;
     }*/
 }

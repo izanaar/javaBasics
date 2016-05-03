@@ -18,7 +18,7 @@ import java.util.Properties;
 @WebServlet(urlPatterns = {"/send_mail"},
         name = "MailServlet",
         initParams = {
-                @WebInitParam(name = "config-path", value = "/config/mail.properties")
+                @WebInitParam(name = "com.spittr.config-path", value = "/com.spittr.config/mail.properties")
         })
 public class MailServlet extends HttpServlet {
 
@@ -30,7 +30,7 @@ public class MailServlet extends HttpServlet {
     public void init() throws ServletException {
         Properties properties = new Properties();
 
-        String path = getInitParameter("config-path");
+        String path = getInitParameter("com.spittr.config-path");
 
         try {
             properties.load(getServletContext().getResourceAsStream(path));

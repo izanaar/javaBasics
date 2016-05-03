@@ -14,12 +14,12 @@ public class ServletRequestAttribute implements ServletRequestAttributeListener 
 
     @Override
     public void attributeAdded(ServletRequestAttributeEvent servletRequestAttributeEvent) {
-        logger.trace("An attribute {} has been added to servlet request.", servletRequestAttributeEvent.getName());
+        logger.trace("An attribute {} has been added to com.spittr.servlet request.", servletRequestAttributeEvent.getName());
     }
 
     @Override
     public void attributeRemoved(ServletRequestAttributeEvent servletRequestAttributeEvent) {
-        logger.trace("An attribute {} has been removed from the servlet request.", servletRequestAttributeEvent.getName());
+        logger.trace("An attribute {} has been removed from the com.spittr.servlet request.", servletRequestAttributeEvent.getName());
     }
 
     @Override

@@ -22,7 +22,7 @@ public class JsonSimple {
             JSONObject genreJsonObject = (JSONObject) JSONValue.parseWithException(genreJson);
             // get the title
             System.out.println(genreJsonObject.get("title"));
-            // get the data
+            // get the com.spittr.data
             JSONArray genreArray = (JSONArray) genreJsonObject.get("dataset");
             // get the first genre
             JSONObject firstGenre = (JSONObject) genreArray.get(0);

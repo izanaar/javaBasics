@@ -1,8 +1,10 @@
-import config.RootConfig;
-import config.WebConfig;
-import listener.Context;
+package com.spittr;
+
+import com.spittr.config.RootConfig;
+import com.spittr.config.WebConfig;
+import com.spittr.listener.Context;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-import servlet.CustomServlet;
+import com.spittr.servlet.CustomServlet;
 
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;

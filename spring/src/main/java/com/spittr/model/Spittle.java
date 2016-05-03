@@ -1,4 +1,4 @@
-package model;
+package com.spittr.model;
 
 import java.util.Date;
 
@@ -8,9 +8,11 @@ public class Spittle {
     private final Date time;
     private Double latitude;
     private Double longitude;
+
     public Spittle(String message, Date time) {
         this(message, time, null, null);
     }
+
     public Spittle(
             String message, Date time, Double longitude, Double latitude) {
         this.id = null;

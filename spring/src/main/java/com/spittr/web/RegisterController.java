@@ -1,6 +1,6 @@
-package web;
+package com.spittr.web;
 
-import model.Spitter;
+import com.spittr.model.Spitter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
