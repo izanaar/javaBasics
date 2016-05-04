@@ -42,7 +42,7 @@ public class ServletInitializer extends AbstractAnnotationConfigDispatcherServle
         super.onStartup(servletContext);
 
         servletContext.addListener(new Context());
-       // servletContext.addListener(new Session());
+        // servletContext.addListener(new Session());
 
         ServletRegistration.Dynamic mySevlet =
                 servletContext.addServlet("myServlet", CustomServlet.class);
