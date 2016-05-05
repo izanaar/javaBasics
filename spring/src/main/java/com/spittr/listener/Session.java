@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSessionListener;
 
 public class Session implements HttpSessionListener {
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {

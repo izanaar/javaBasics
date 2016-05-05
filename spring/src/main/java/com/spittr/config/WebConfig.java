@@ -31,19 +31,4 @@ public class WebConfig extends WebMvcConfigurerAdapter {
             DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
-
-/*
-    @Bean
-    public HttpSessionListener getSessionListener(){
-        return new Session();
-    }
-
-    @Bean
-    public MultipartResolver multipartResolver() throws IOException {
-        CommonsMultipartResolver multipartResolver =
-                new CommonsMultipartResolver();
-        multipartResolver.setUploadTempDir(
-                new FileSystemResource("/tmp/com.spittr/uploads"));
-        return multipartResolver;
-    }*/
 }

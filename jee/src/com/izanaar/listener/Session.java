@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+@WebListener
 public class Session implements HttpSessionListener {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());

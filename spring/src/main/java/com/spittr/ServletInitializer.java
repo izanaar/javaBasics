@@ -3,6 +3,7 @@ package com.spittr;
 import com.spittr.config.RootConfig;
 import com.spittr.config.WebConfig;
 import com.spittr.listener.Context;
+import com.spittr.listener.Session;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import com.spittr.servlet.CustomServlet;
 
@@ -42,7 +43,7 @@ public class ServletInitializer extends AbstractAnnotationConfigDispatcherServle
         super.onStartup(servletContext);
 
         servletContext.addListener(new Context());
-        // servletContext.addListener(new Session());
+        servletContext.addListener(new Session());
 
         ServletRegistration.Dynamic mySevlet =
                 servletContext.addServlet("myServlet", CustomServlet.class);
