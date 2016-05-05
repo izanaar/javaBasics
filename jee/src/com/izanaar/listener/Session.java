@@ -16,8 +16,8 @@ public class Session implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
         HttpSession session = httpSessionEvent.getSession();
-        logger.info("New session has been created: {}. Interval: {}", session.getId(), session.getMaxInactiveInterval());
-
+        logger.info("New session has been created: {}. Interval: {}",
+                session.getId(), session.getMaxInactiveInterval());
     }
 
     @Override
