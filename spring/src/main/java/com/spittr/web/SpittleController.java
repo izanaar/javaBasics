@@ -4,6 +4,7 @@ import com.spittr.data.SpittleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -17,6 +18,14 @@ public class SpittleController {
     public String getSpittles(Model model){
         model.addAttribute(spittleRepository.getSpittles(0,20));
         return "spittles";
+    }
+
+    @RequestMapping("get/{spittleId")
+    public String getSpittle(@PathVariable String spittleId){
+
+
+
+        return null;
     }
 
 }
