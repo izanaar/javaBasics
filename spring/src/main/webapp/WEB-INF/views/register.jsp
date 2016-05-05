@@ -6,12 +6,33 @@
 </head>
 <body>
 <sf:form method="POST" commandName="spitter">
-    First Name: <sf:input path="firstName"/><br/>
-    Last Name: <sf:input path="lastName"/><br/>
-    Email: <sf:input path="email"/><br/>
-    Username: <sf:input path="username"/><br/>
-    Password: <sf:password path="password"/><br/>
-    <input type="submit" value="Register"/>
+    <h3>Register in Spitter</h3>
+    <table>
+        <tr>
+            <td>First Name:</td>
+            <td><sf:input path="firstName"/></td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><sf:input path="lastName"/></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><sf:input path="email"/></td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td><sf:input path="username"/></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><sf:password path="password"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Register"/></td>
+        </tr>
+    </table>
 </sf:form>
 </body>
 </html>
