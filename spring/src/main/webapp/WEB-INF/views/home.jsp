@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Spittr</title>
+    <link rel="stylesheet" href="<c:url value="/css/app.css" />"/>
 </head>
 <body>
 <c:out value="Spitter says hello, using JSTL"/>
