@@ -35,11 +35,11 @@ public class SpittleControllerTest {
 
 
     @Test
-    public void testGetSpittles() throws Exception{
+    public void testGetSpittles() throws Exception {
 
         List<Spittle> expectedSpittles = new ArrayList<>(2);
-        expectedSpittles.add(new Spittle("Spittle 1", new Date()));
-        expectedSpittles.add(new Spittle("Spittle 2", new Date()));
+        expectedSpittles.add(new Spittle(0L, "Spittle 1", new Date()));
+        expectedSpittles.add(new Spittle(1L, "Spittle 2", new Date()));
 
         when(spittleRepository.getSpittles(anyLong(), anyInt())).thenReturn(expectedSpittles);
 
