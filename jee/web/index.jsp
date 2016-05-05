@@ -10,6 +10,7 @@
     <a href="/send_mail">Send email</a>
     <a href="/old_style">Old style</a>
     <a href="/new_style">New style</a>
+    <a href="/cookie">Cookie</a>
 </div>
 <c:out value="JSTL says hello"/>
 <h5>Счетчик времени от запуска приложения до нажатия кнопки</h5>

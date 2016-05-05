@@ -2,32 +2,40 @@ package com.spittr.model;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Component
+@Scope(
+        value = WebApplicationContext.SCOPE_SESSION,
+        proxyMode = ScopedProxyMode.INTERFACES)
 public class Spitter {
 
     private Long id;
 
     @NotNull
-    @Size(min=5, max=16)
+    @Size(min = 5, max = 16)
     private String username;
 
     @NotNull
-    @Size(min=5, max=16)
+    @Size(min = 5, max = 16)
     private String email;
 
     @NotNull
-    @Size(min=5, max=25)
+    @Size(min = 5, max = 25)
     private String password;
 
     @NotNull
-    @Size(min=2, max=30)
+    @Size(min = 2, max = 30)
     private String firstName;
 
     @NotNull
-    @Size(min=2, max=30)
+    @Size(min = 2, max = 30)
     private String lastName;
 
     @Override

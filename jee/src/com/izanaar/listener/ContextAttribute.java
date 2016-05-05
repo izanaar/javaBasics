@@ -10,7 +10,7 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class ContextAttribute implements ServletContextAttributeListener{
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public void attributeAdded(ServletContextAttributeEvent servletContextAttributeEvent) {

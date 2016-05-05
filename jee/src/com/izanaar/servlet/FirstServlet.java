@@ -14,14 +14,14 @@ import java.util.GregorianCalendar;
 
 public class FirstServlet extends HttpServlet {
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         processRequest(req, resp);
     }
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         GregorianCalendar gc = new GregorianCalendar();
         String timeJsp = request.getParameter("time");

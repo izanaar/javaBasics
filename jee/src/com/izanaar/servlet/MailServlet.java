@@ -67,7 +67,7 @@ public class MailServlet extends HttpServlet {
 
         req.getRequestDispatcher("/WEB-INF/pages/mailSent.jsp").forward(req,resp);
 
-        try {
+        try{
             sendEmail(to, subject, text);
         } catch (MessagingException e) {
             e.printStackTrace();
@@ -84,7 +84,7 @@ public class MailServlet extends HttpServlet {
         // Get the Session object.
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
+                    protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(username, password);
                     }
                 });

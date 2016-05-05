@@ -17,4 +17,6 @@ public class FictionalSpittleRepositoryTest {
         assertEquals(20, spittleList.size());
     }
 
+
+
 }
