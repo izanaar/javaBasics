@@ -17,16 +17,9 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 @EnableWebMvc
 @ComponentScan(basePackageClasses = HomeController.class)
 public class WebConfig extends WebMvcConfigurerAdapter {
-    @Bean
-    public ViewResolver viewResolver(SpringTemplateEngine templateEngine) {
-        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-        viewResolver.setTemplateEngine(templateEngine);
-        return viewResolver;
-    }
 
     @Bean
-    public TemplateEngine templateEngine(
-            TemplateResolver templateResolver) {
+    public SpringTemplateEngine templateEngine(TemplateResolver templateResolver) {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver);
         return templateEngine;
@@ -40,5 +33,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode("HTML5");
         return templateResolver;
+    }
+
+    @Bean
+    public ViewResolver viewResolver(SpringTemplateEngine templateEngine) {
+        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+        viewResolver.setTemplateEngine(templateEngine);
+        return viewResolver;
     }
 }
