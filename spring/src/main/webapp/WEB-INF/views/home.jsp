@@ -3,7 +3,9 @@
 <html>
 <head>
     <title>Spittr</title>
-    <link rel="stylesheet" href="<c:url value="/css/app.css" />"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 </head>
 <body>
 <c:out value="Spitter says hello, using JSTL"/>
