@@ -15,24 +15,41 @@
             <td><sf:input path="firstName"/></td>
         </tr>
         <tr>
-            <td colspan="2"><sf:errors path="firstName"/> </td>
+            <td colspan="2"  class="error"><sf:errors path="firstName" /> </td>
         </tr>
+
         <tr>
             <td>Last Name:</td>
             <td><sf:input path="lastName"/></td>
         </tr>
         <tr>
+            <td colspan="2"  class="error"><sf:errors path="lastName" /> </td>
+        </tr>
+
+        <tr>
             <td>Email:</td>
             <td><sf:input path="email"/></td>
         </tr>
+        <tr>
+            <td colspan="2"  class="error"><sf:errors path="email" /> </td>
+        </tr>
+
         <tr>
             <td>Username:</td>
             <td><sf:input path="username"/></td>
         </tr>
         <tr>
+            <td colspan="2"  class="error"><sf:errors path="username" /> </td>
+        </tr>
+
+        <tr>
             <td>Password:</td>
             <td><sf:password path="password"/></td>
         </tr>
+        <tr>
+            <td colspan="2"  class="error"><sf:errors path="password" /> </td>
+        </tr>
+
         <tr>
             <td colspan="2"><input type="submit" value="Register" style="width: 100%"/></td>
         </tr>

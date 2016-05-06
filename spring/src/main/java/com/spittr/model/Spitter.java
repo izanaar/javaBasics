@@ -19,7 +19,7 @@ public class Spitter {
     private Long id;
 
     @NotNull
-    @Size(min = 5, max = 16)
+    @Size(min = 5, max = 16, message = "The username must be between {min} and {max} characters long")
     private String username;
 
     @NotNull
@@ -27,15 +27,15 @@ public class Spitter {
     private String email;
 
     @NotNull
-    @Size(min = 5, max = 25)
+    @Size(min = 5, max = 25, message = "{Password.size}")
     private String password;
 
     @NotNull
-    @Size(min = 2, max = 30)
+    @Size(min = 2, max = 30, message = "The first name must be between {min} and {max} characters long")
     private String firstName;
 
     @NotNull
-    @Size(min = 2, max = 30)
+    @Size(min = 2, max = 30, message = "{lastName.size}")
     private String lastName;
 
     @Override

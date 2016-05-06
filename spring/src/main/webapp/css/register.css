@@ -1,13 +1,18 @@
-body{
+body {
     font-family: sans-serif;
     background-color: #eee;
 }
 
-form{
+form {
     padding: 15px;
     border-radius: 0;
     background-color: #FFF;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.16),0 0 2px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .16), 0 0 2px 0 rgba(0, 0, 0, .12);
     width: 250px;
     margin: 15% auto 0 auto;
+}
+
+td.error{
+    text-align: center;
+    color: #ff4436;
 }
