@@ -27,7 +27,7 @@ public class Spitter {
     private String email;
 
     @NotNull
-    @Size(min = 5, max = 25, message = "{Password.size}")
+    @Size(min = 5, max = 25, message = "{password.size}")
     private String password;
 
     @NotNull
