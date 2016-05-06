@@ -8,17 +8,19 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultHandler;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Matchers.anyLong;
+import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
@@ -36,7 +38,6 @@ public class SpittleControllerTest {
 
     @Test
     public void testGetSpittles() throws Exception {
-
         List<Spittle> expectedSpittles = new ArrayList<>(2);
         expectedSpittles.add(new Spittle(0L, "Spittle 1", new Date()));
         expectedSpittles.add(new Spittle(1L, "Spittle 2", new Date()));
@@ -48,6 +49,22 @@ public class SpittleControllerTest {
                 .andExpect(model().attributeExists("spittleList"))
                 .andExpect(model().attribute("spittleList",
                         hasItems(expectedSpittles.toArray())));
+
+    }
+
+    @Test
+    public void testGetSpittle() throws Exception {
+        Spittle expectedSpittle = new Spittle(2L, "the spittle", new Date(), 2D, -3D);
+        when(spittleRepository.findOne(anyLong())).thenReturn(Optional.empty());
+        when(spittleRepository.findOne(expectedSpittle.getId())).thenReturn(Optional.of(expectedSpittle));
+
+        mockMvc.perform(get("/spittles/get/2"))
+                .andExpect(model().attributeExists("spittle"))
+                .andExpect(model().attribute("spittle", expectedSpittle));
+
+
+        mockMvc.perform(get("/spittles/get/3"))
+                .andExpect(model().attributeDoesNotExist("spittle"));
 
     }
 }
