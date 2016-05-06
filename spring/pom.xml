@@ -9,7 +9,10 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-
+    <properties>
+        <sl4j.version>1.1.7</sl4j.version>
+        <springframework.version>4.2.5.RELEASE</springframework.version>
+    </properties>
 
     <build>
         <plugins>
@@ -29,27 +32,36 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.2.5.RELEASE</version>
+            <version>${springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>4.2.5.RELEASE</version>
+            <version>${springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <version>4.2.5.RELEASE</version>
+            <version>${springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>4.2.5.RELEASE</version>
+            <version>${springframework.version}</version>
         </dependency>
+
+
         <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring4</artifactId>
+            <version>2.1.2.RELEASE</version>
         </dependency>
 
 
@@ -62,17 +74,17 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>1.1.7</version>
+            <version>${sl4j.version}</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.1.7</version>
+            <version>${sl4j.version}</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-access</artifactId>
-            <version>1.1.7</version>
+            <version>${sl4j.version}</version>
         </dependency>
 
 
@@ -100,7 +112,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>4.2.5.RELEASE</version>
+            <version>${springframework.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -108,11 +120,6 @@
             <artifactId>system-rules</artifactId>
             <version>1.16.0</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <version>RELEASE</version>
         </dependency>
 
         <dependency>
