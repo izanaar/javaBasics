@@ -5,54 +5,61 @@
     <link rel="stylesheet" href="/css/register.css"/>
 </head>
 <body>
-reg form, yeah
-<!--<sf:form method="POST" commandName="spitter" cssClass="card-panel teal lighten-2">
+<form method="POST" th:object="${spitter}">
     <h3>Register in Spitter</h3>
     <table>
         <tr>
             <td>First Name:</td>
-            <td><sf:input path="firstName"/></td>
+            <td><input type="text" th:field="*{firstName}"/></td>
         </tr>
-        <tr>
-            <td colspan="2"  class="error"><sf:errors path="firstName" /> </td>
+        <tr th:if="${#fields.hasErrors('firstName')}">
+            <td colspan="2"> <span th:text="${#fields.errors('firstName')}" ></span></td>
         </tr>
 
         <tr>
             <td>Last Name:</td>
-            <td><sf:input path="lastName"/></td>
+            <td>
+                <input type="text" th:field="*{lastName}"/>
+            </td>
         </tr>
-        <tr>
-            <td colspan="2"  class="error"><sf:errors path="lastName" /> </td>
+        <tr th:if="${#fields.hasErrors('lastName')}">
+            <td colspan="2"> <span th:text="${#fields.errors('lastName')}" ></span></td>
         </tr>
 
         <tr>
             <td>Email:</td>
-            <td><sf:input path="email"/></td>
+            <td>
+                <input type="email" th:field="*{email}"/>
+            </td>
         </tr>
-        <tr>
-            <td colspan="2"  class="error"><sf:errors path="email" /> </td>
+        <tr th:if="${#fields.hasErrors('email')}">
+            <td colspan="2"> <span th:text="${#fields.errors('email')}" ></span></td>
         </tr>
 
         <tr>
             <td>Username:</td>
-            <td><sf:input path="username"/></td>
+            <td>
+                <input type="text" th:field="*{username}"/>
+            </td>
         </tr>
-        <tr>
-            <td colspan="2"  class="error"><sf:errors path="username" /> </td>
+        <tr th:if="${#fields.hasErrors('username')}">
+            <td colspan="2"> <span th:text="${#fields.errors('username')}" ></span></td>
         </tr>
 
         <tr>
             <td>Password:</td>
-            <td><sf:password path="password"/></td>
+            <td>
+                <input type="password" th:field="*{password}"/>
+            </td>
         </tr>
-        <tr>
-            <td colspan="2"  class="error"><sf:errors path="password" /> </td>
+        <tr th:if="${#fields.hasErrors('password')}">
+            <td colspan="2"> <span th:text="${#fields.errors('password')}" ></span></td>
         </tr>
 
         <tr>
             <td colspan="2"><input type="submit" value="Register" style="width: 100%"/></td>
         </tr>
     </table>
-</sf:form>-->
+</form>
 </body>
 </html>
