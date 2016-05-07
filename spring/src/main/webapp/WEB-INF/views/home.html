@@ -1,13 +1,15 @@
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Spittr</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 </head>
 <body>
 <h3>Welcome to Spittr</h3>
-<a href="/spittles/get">Spittles</a> |
-<a href="/register">Register</a>
+<a th:href="@{/spittles/get}">Spittles</a> |
+<a th:href="@{/register}">Register</a>
 </body>
 </html>
