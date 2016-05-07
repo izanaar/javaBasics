@@ -4,6 +4,9 @@ import com.spittr.config.RootConfig;
 import com.spittr.config.WebConfig;
 import com.spittr.listener.Context;
 import com.spittr.listener.Session;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import com.spittr.servlet.CustomServlet;
 
@@ -33,9 +36,10 @@ public class ServletInitializer extends AbstractAnnotationConfigDispatcherServle
         super.customizeRegistration(registration);
         registration.setInitParameter("initRegParam","Tempest keep blah blah blah");
 
-        registration.setMultipartConfig(
-                new MultipartConfigElement("/tmp/spittr/uploads",
-                        2097152, 4194304, 0));
+        MultipartConfigElement multipartConfigElement =
+                new MultipartConfigElement("/tmp/spittr/uploads", 2097152, 4194304, 0);
+
+        registration.setMultipartConfig(multipartConfigElement);
     }
 
     @Override
@@ -47,6 +51,7 @@ public class ServletInitializer extends AbstractAnnotationConfigDispatcherServle
 
         ServletRegistration.Dynamic mySevlet =
                 servletContext.addServlet("myServlet", CustomServlet.class);
+
         mySevlet.addMapping("/custom");
         mySevlet.setInitParameter("paramx","Your personal init parameter");
     }

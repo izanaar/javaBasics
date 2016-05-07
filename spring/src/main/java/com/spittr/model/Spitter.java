@@ -19,24 +19,24 @@ public class Spitter {
     private Long id;
 
     @NotNull
-    @Size(min = 5, max = 16, message = "The username must be between {min} and {max} characters long")
-    private String username;
-
-    @NotNull
-    @Size(min = 5, max = 16)
-    private String email;
-
-    @NotNull
-    @Size(min = 5, max = 25, message = "{password.size}")
-    private String password;
-
-    @NotNull
     @Size(min = 2, max = 30, message = "The first name must be between {min} and {max} characters long")
     private String firstName;
 
     @NotNull
     @Size(min = 2, max = 30, message = "{lastName.size}")
     private String lastName;
+
+    @NotNull
+    @Size(min = 5, max = 16, message = "The username must be between {min} and {max} characters long")
+    private String username;
+
+    @NotNull
+    @Size(min = 5, max = 40)
+    private String email;
+
+    @NotNull
+    @Size(min = 5, max = 25, message = "{password.size}")
+    private String password;
 
     @Override
     public boolean equals(Object o) {

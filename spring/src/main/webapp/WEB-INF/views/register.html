@@ -5,15 +5,16 @@
     <link rel="stylesheet" href="/css/register.css"/>
 </head>
 <body>
-<form method="POST" th:object="${spitter}">
+
+<form method="POST" th:object="${spitter}" enctype="multipart/form-data">
     <h3>Register in Spitter</h3>
     <table>
         <tr>
             <td>First Name:</td>
-            <td><input type="text" th:field="*{firstName}"/></td>
+            <td><input type="text" name="firstName" th:field="*{firstName}"/></td>
         </tr>
         <tr th:if="${#fields.hasErrors('firstName')}">
-            <td colspan="2"> <span th:text="${#fields.errors('firstName')}" ></span></td>
+            <td colspan="2"><span th:text="${#fields.errors('firstName')}"></span></td>
         </tr>
 
         <tr>
@@ -23,7 +24,7 @@
             </td>
         </tr>
         <tr th:if="${#fields.hasErrors('lastName')}">
-            <td colspan="2"> <span th:text="${#fields.errors('lastName')}" ></span></td>
+            <td colspan="2"><span th:text="${#fields.errors('lastName')}"></span></td>
         </tr>
 
         <tr>
@@ -33,7 +34,7 @@
             </td>
         </tr>
         <tr th:if="${#fields.hasErrors('email')}">
-            <td colspan="2"> <span th:text="${#fields.errors('email')}" ></span></td>
+            <td colspan="2"><span th:text="${#fields.errors('email')}"></span></td>
         </tr>
 
         <tr>
@@ -43,17 +44,22 @@
             </td>
         </tr>
         <tr th:if="${#fields.hasErrors('username')}">
-            <td colspan="2"> <span th:text="${#fields.errors('username')}" ></span></td>
+            <td colspan="2"><span th:text="${#fields.errors('username')}"></span></td>
         </tr>
 
         <tr>
             <td>Password:</td>
             <td>
-                <input type="password" th:field="*{password}"/>
+                <input type="text" th:field="*{password}"/>
             </td>
         </tr>
         <tr th:if="${#fields.hasErrors('password')}">
-            <td colspan="2"> <span th:text="${#fields.errors('password')}" ></span></td>
+            <td colspan="2"><span th:text="${#fields.errors('password')}"></span></td>
+        </tr>
+
+        <tr>
+            <td>Txt:</td>
+            <td><input type="file" name="textFile"/></td>
         </tr>
 
         <tr>
