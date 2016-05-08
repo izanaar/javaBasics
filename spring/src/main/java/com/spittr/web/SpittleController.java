@@ -25,8 +25,8 @@ public class SpittleController {
 
     @RequestMapping("get/{spittleId}")
     public String getSpittle(@PathVariable Long spittleId, Model model){
-        Optional<Spittle> spittleOptional = spittleRepository.findOne(spittleId);
-        model.addAttribute("spittle", spittleOptional.isPresent() ? spittleOptional.get() : null);
+        Spittle spittle = spittleRepository.findOne(spittleId);
+        model.addAttribute(spittle);
         return "spittles";
     }
 

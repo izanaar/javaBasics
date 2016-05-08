@@ -43,7 +43,12 @@ public class FictionalSpittleRepository implements SpittleRepository {
     }
 
     @Override
-    public Optional<Spittle> findOne(Long spittleId) {
-        return spittles.stream().filter(spittle -> spittle.getId().equals(spittleId)).findFirst();
+    public Spittle findOne(Long spittleId) {
+        return spittles
+                .stream()
+                .filter(spittle -> spittle.getId()
+                        .equals(spittleId))
+                .findFirst()
+                .orElseThrow(SpittleNotFoundException::new);
     }
 }

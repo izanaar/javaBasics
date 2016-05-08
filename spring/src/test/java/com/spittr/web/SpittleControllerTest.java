@@ -1,5 +1,6 @@
 package com.spittr.web;
 
+import com.spittr.data.SpittleNotFoundException;
 import com.spittr.data.SpittleRepository;
 import com.spittr.model.Spittle;
 import org.junit.Test;
@@ -9,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultHandler;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ import java.util.Optional;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.when;
+import static org.springframework.http.ResponseEntity.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
@@ -55,8 +58,9 @@ public class SpittleControllerTest {
     @Test
     public void testGetSpittle() throws Exception {
         Spittle expectedSpittle = new Spittle(2L, "the spittle", new Date(), 2D, -3D);
-        when(spittleRepository.findOne(anyLong())).thenReturn(Optional.empty());
-        when(spittleRepository.findOne(expectedSpittle.getId())).thenReturn(Optional.of(expectedSpittle));
+
+        when(spittleRepository.findOne(expectedSpittle.getId())).thenReturn(expectedSpittle);
+        when(spittleRepository.findOne(3L)).thenThrow(SpittleNotFoundException.class);
 
         mockMvc.perform(get("/spittles/get/2"))
                 .andExpect(model().attributeExists("spittle"))
@@ -64,7 +68,7 @@ public class SpittleControllerTest {
 
 
         mockMvc.perform(get("/spittles/get/3"))
-                .andExpect(model().attributeDoesNotExist("spittle"));
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
 
     }
 }
