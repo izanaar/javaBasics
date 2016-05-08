@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Optional;
 
@@ -18,15 +19,21 @@ public class SpittleController {
     private SpittleRepository spittleRepository;
 
     @RequestMapping("get")
-    public String getSpittles(Model model){
-        model.addAttribute(spittleRepository.getSpittles(0,20));
+    public String getSpittles(Model model) {
+        model.addAttribute(spittleRepository.getSpittles(0, 20));
         return "spittles";
     }
 
     @RequestMapping("get/{spittleId}")
-    public String getSpittle(@PathVariable Long spittleId, Model model){
+    public String getSpittle(@PathVariable Long spittleId, Model model) {
         Spittle spittle = spittleRepository.findOne(spittleId);
         model.addAttribute(spittle);
+        return "spittles";
+    }
+
+    @RequestMapping(value = "save", method = RequestMethod.POST)
+    public String saveSpittle(Spittle spittle) {
+
         return "spittles";
     }
 

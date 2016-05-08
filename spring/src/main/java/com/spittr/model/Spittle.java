@@ -31,16 +31,20 @@ public class Spittle {
         Spittle spittle = (Spittle) o;
 
         return new org.apache.commons.lang.builder.EqualsBuilder()
-                .append(id, spittle.id)
                 .append(time, spittle.time)
+                .append(message, spittle.message)
+                .append(latitude, spittle.latitude)
+                .append(longitude, spittle.longitude)
                 .isEquals();
     }
 
     @Override
     public int hashCode() {
         return new org.apache.commons.lang.builder.HashCodeBuilder(17, 37)
-                .append(id)
                 .append(time)
+                .append(message)
+                .append(latitude)
+                .append(longitude)
                 .toHashCode();
     }
 

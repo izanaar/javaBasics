@@ -71,4 +71,9 @@ public class SpittleControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
 
     }
+
+    @Test
+    public void testSaveSpittle() throws Exception {
+
+    }
 }

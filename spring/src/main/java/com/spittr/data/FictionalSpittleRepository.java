@@ -36,7 +36,6 @@ public class FictionalSpittleRepository implements SpittleRepository {
 
     }
 
-
     @Override
     public List<Spittle> getSpittles(long max, int count) {
         return spittles;
@@ -50,5 +49,10 @@ public class FictionalSpittleRepository implements SpittleRepository {
                         .equals(spittleId))
                 .findFirst()
                 .orElseThrow(SpittleNotFoundException::new);
+    }
+
+    @Override
+    public Spittle saveSpittle(Spittle spittle) {
+        return null;//TODO implement method
     }
 }
