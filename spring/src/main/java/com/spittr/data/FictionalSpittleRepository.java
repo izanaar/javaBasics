@@ -30,7 +30,7 @@ public class FictionalSpittleRepository implements SpittleRepository {
         spittles = new ArrayList<>(dates.length);
 
         for(int i = 0; i < dates.length; i++){
-            spittles.add(i, new Spittle(i, "Spittle #" + i, dates[i],
+            spittles.add(i, new Spittle((long) i, "Spittle #" + i, dates[i],
                     ThreadLocalRandom.current().nextDouble(0, 361), ThreadLocalRandom.current().nextDouble(-180,181)));
         }
 

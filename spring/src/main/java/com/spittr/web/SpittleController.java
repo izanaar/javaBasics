@@ -1,22 +1,24 @@
 package com.spittr.web;
 
+import com.spittr.data.DuplicateSpittleException;
 import com.spittr.data.SpittleRepository;
 import com.spittr.model.Spittle;
+import com.spittr.model.dto.SpittleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.Optional;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/spittles")
 public class SpittleController {
 
-    @Autowired
     private SpittleRepository spittleRepository;
+
+    @Autowired
+    public SpittleController(SpittleRepository spittleRepository) {
+        this.spittleRepository = spittleRepository;
+    }
 
     @RequestMapping("get")
     public String getSpittles(Model model) {
@@ -32,9 +34,16 @@ public class SpittleController {
     }
 
     @RequestMapping(value = "save", method = RequestMethod.POST)
-    public String saveSpittle(Spittle spittle) {
+    public String saveSpittle(SpittleDTO spittleDTO, Model model) {
+        Spittle spittle = spittleDTO.toSpittle();
+        spittleRepository.saveSpittle(spittle);
+        return "redirect:/spittles";
+    }
 
-        return "spittles";
+
+    @ExceptionHandler(DuplicateSpittleException.class)
+    public String handleDuplicateSpittle() {
+        return "error/duplicate";
     }
 
 }
