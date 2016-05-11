@@ -1,14 +1,14 @@
 package com.spittr.config;
 
-import org.apache.commons.dbcp.BasicDataSource;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import javax.validation.constraints.NotNull;
+import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan(basePackages = {"com.spittr.model","com.spittr.data","com.spittr.config"},
@@ -18,15 +18,12 @@ import javax.validation.constraints.NotNull;
 public class RootConfig {
 
         @Bean
-        public BasicDataSource dataSource() {
-                BasicDataSource ds = new BasicDataSource();
-                ds.setDriverClassName("org.h2.Driver");
-                ds.setUrl("jdbc:h2:tcp://localhost/test");
-                ds.setUsername("root");
-                ds.setPassword("davidian");
-                ds.setInitialSize(5);
-                ds.setMaxActive(10);
-                return ds;
+        public DataSource dataSource() {
+                return new EmbeddedDatabaseBuilder()
+                        .setType(EmbeddedDatabaseType.H2)
+                        .addScript("classpath:schema.sql")
+                        .addScript("classpath:test-data.sql")
+                        .build();
         }
 }
 
