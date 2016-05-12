@@ -4,6 +4,9 @@ import com.spittr.config.RootConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -21,8 +24,11 @@ public class DataSourceTest {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private JdbcOperations jdbcOperations;
+
     @Test
-    public void name() throws Exception {
+    public void testGetByJdbc() throws Exception {
 
         String query = "SELECT * FROM users WHERE username=?";
 
@@ -30,8 +36,30 @@ public class DataSourceTest {
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, "user");
         ResultSet rs = ps.executeQuery();
-        while (rs.next()){
+        while (rs.next()) {
             System.out.println(rs.getString(2));
+        }
+    }
+
+    @Test
+    public void testGetByJdbcTemplate() throws Exception {
+
+        RowMapper<Message> userRowMapper = (resultSet, i) -> new Message(resultSet.getLong(1), resultSet.getString(2));
+
+        String sql = "SELECT * FROM messages where id=?";
+
+        Message message = jdbcOperations.queryForObject(sql, userRowMapper, 1);
+
+        int v = 2;
+    }
+
+    class Message {
+        public long id;
+        public String message;
+
+        public Message(long id, String message) {
+            this.id = id;
+            this.message = message;
         }
     }
 }
