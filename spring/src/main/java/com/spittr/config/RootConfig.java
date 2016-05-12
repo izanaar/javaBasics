@@ -22,7 +22,7 @@ public class RootConfig {
         ds.setDriverClassName("com.mysql.jdbc.Driver");
         ds.setUrl("jdbc:mysql://jenkins.cloudapp.net:3306/security");
         ds.setUsername("root");
-        ds.setPassword("yourpass");
+        ds.setPassword("");
         return ds;
     }
 

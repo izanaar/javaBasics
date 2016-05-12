@@ -1,14 +1,9 @@
 package com.spittr.config;
 
-import com.spittr.config.RootConfig;
-import com.spittr.config.WebConfig;
 import com.spittr.listener.Context;
 import com.spittr.listener.Session;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.multipart.MultipartResolver;
-import org.springframework.web.multipart.support.StandardServletMultipartResolver;
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import com.spittr.servlet.CustomServlet;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
