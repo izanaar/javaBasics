@@ -20,9 +20,9 @@ public class RootConfig {
     public DataSource dataSource(){
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("com.mysql.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://jenkins.cloudapp.net/security?profileSQL=true");
+        ds.setUrl("jdbc:mysql://jenkins.cloudapp.net:3306/security");
         ds.setUsername("root");
-        ds.setPassword("");
+        ds.setPassword("yourpass");
         return ds;
     }
 
