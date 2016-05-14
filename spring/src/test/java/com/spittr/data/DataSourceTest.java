@@ -1,6 +1,7 @@
 package com.spittr.data;
 
 import com.spittr.config.RootConfig;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.ObjectFactory;
@@ -38,6 +39,7 @@ public class DataSourceTest {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Test
+    @Ignore
     public void testGetByJdbc() throws Exception {
 
         String query = "SELECT * FROM users WHERE username=?";
@@ -52,12 +54,14 @@ public class DataSourceTest {
     }
 
     @Test
+    @Ignore
     public void testGetByJdbcTemplate() throws Exception {
         String sql = "SELECT * FROM messages where id=?";
         System.out.println(jdbcOperations.queryForObject(sql, userRowMapper, 1));
     }
 
     @Test
+    @Ignore
     public void testGetByNamedJdbcTemplate() throws Exception {
         String sql = "SELECT * FROM messages where id=:id";
 
