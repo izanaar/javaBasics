@@ -1,6 +1,8 @@
 package com.spittr.data;
 
 
+
+
 import com.spittr.data.entities.Translation;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Set;
 
 @Repository
 @Transactional
@@ -20,8 +23,8 @@ public class TranslationRepository {
         em.persist(translation);
     }
 
-    public void saveTranslationList(List<Translation> translationList){
-        em.persist(translationList);
+    public void saveTranslationSet(Set<Translation> translationSet){
+        translationSet.forEach(this::saveTranslation);
     }
 
     public List<Translation> getTranslationList(){
