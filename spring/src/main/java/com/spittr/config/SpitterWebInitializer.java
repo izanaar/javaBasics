@@ -1,5 +1,6 @@
 package com.spittr.config;
 
+import com.spittr.config.data.DataSourcesConfig;
 import com.spittr.listener.Context;
 import com.spittr.listener.Session;
 import com.spittr.servlet.CustomServlet;
@@ -18,7 +19,7 @@ public class SpitterWebInitializer extends AbstractAnnotationConfigDispatcherSer
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[] {RootConfig.class, DataConfig.class};
+        return new Class<?>[] {RootConfig.class, DataConfig.class, DataSourcesConfig.class};
     }
 
     @Override
