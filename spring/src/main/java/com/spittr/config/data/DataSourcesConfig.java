@@ -1,5 +1,6 @@
 package com.spittr.config.data;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +22,7 @@ public class DataSourcesConfig {
     private String dpPassword;
 
     @Bean
-    @Profile("dev")
+    @Qualifier("chwin")
     public DataSource dataSource(){
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("com.mysql.jdbc.Driver");
@@ -32,7 +33,7 @@ public class DataSourcesConfig {
     }
 
     @Bean
-    @Profile("test")
+    @Qualifier("h2")
     public DataSource embeddedDataSource() {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)

@@ -4,6 +4,7 @@ import com.spittr.web.HomeController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
@@ -18,8 +19,13 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackageClasses = HomeController.class)
+/*@ComponentScan(basePackageClasses = HomeController.class)*/
 public class WebConfig extends WebMvcConfigurerAdapter {
+
+    @Bean
+    public HomeController homeController(){
+        return new HomeController();
+    }
 
     @Bean
     public SpringTemplateEngine templateEngine(TemplateResolver templateResolver) {
