@@ -5,6 +5,7 @@ import com.spittr.config.MethodSecurityConfig;
 import com.spittr.data.SpittleRepository;
 import com.spittr.model.Spitter;
 import com.spittr.service.SpittleService;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -14,7 +15,6 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.util.ReflectionTestUtils;
 
 import static org.mockito.Mockito.*;
 
@@ -32,8 +32,9 @@ public class MethodSecurityTest {
     @Autowired
     private SpittleRepository spittleRepository;
 
-    public MethodSecurityTest() {
-        spittleService = new SpittleService();
+    @Before
+    public void setUp() throws Exception{
+        reset(spittleRepository);
     }
 
     @Test
@@ -51,7 +52,10 @@ public class MethodSecurityTest {
     @Test
     @WithMockUser(authorities = "ROLE_ADMIN")
     public void testGetSpitterWithAdminAuthority() throws Exception {
-        long id = 5L;
+        testGetSpitter(5L);
+    }
+
+    private void testGetSpitter(long id){
         Spitter spitter = mock(Spitter.class);
 
         when(spittleRepository.getSpitter(id)).thenReturn(spitter);
@@ -62,11 +66,6 @@ public class MethodSecurityTest {
     @Test
     @WithMockUser(roles = "ADMIN")
     public void testGetSpitterWithAdminRole() throws Exception {
-        long id = 5L;
-        Spitter spitter = mock(Spitter.class);
-
-        when(spittleRepository.getSpitter(id)).thenReturn(spitter);
-        spittleService.getSpitterProfile(id);
-        verify(spittleRepository, times(1)).getSpitter(id);
+        testGetSpitter(5L);
     }
 }
