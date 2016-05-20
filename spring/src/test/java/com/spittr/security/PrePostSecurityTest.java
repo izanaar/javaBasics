@@ -38,20 +38,11 @@ public class PrePostSecurityTest {
     }
 
     @Test
-    @WithMockUser(roles = "TOBBY")
+    @WithMockUser(roles = "PRESIDENT")
     public void testGetSpitterAsAdmin() throws Exception {
-        long id = 5L;
-        Spitter spitter = mock(Spitter.class);
-
-        when(spittleRepository.getSpitter(id)).thenReturn(spitter);
-        spittleService.getSpitterProfilePostAuthorize(id);
-        verify(spittleRepository, times(1)).getSpitter(anyLong());
-    }
-
-    @Test
-    public void testGetSpitterAsAdminParam() throws Exception {
         long id = 6L;
         Spitter spitter = mock(Spitter.class);
+        when(spitter.getId()).thenReturn(id);
 
         when(spittleRepository.getSpitter(id)).thenReturn(spitter);
         spittleService.getSpitterProfilePostAuthorize(id);
@@ -71,14 +62,27 @@ public class PrePostSecurityTest {
     }
 
     @Test
-    @WithMockUser()
+    @WithMockUser
     public void testPost2() throws Exception {
         long id = 6L;
         Spitter spitter = new Spitter();
         spitter.setId(7L);
 
+
         when(spittleRepository.getSpitter(id)).thenReturn(spitter);
         thrown.expect(AccessDeniedException.class);
+        spittleService.getSpitterProfilePostAuthorize(id);
+        verify(spittleRepository, times(1)).getSpitter(anyLong());
+    }
+
+    @Test
+    @WithMockUser("user42")
+    public void testPost3() throws Exception {
+        long id = 6L;
+        Spitter spitter = new Spitter();
+        spitter.setId(9L);
+        spitter.setUsername("user42");
+        when(spittleRepository.getSpitter(id)).thenReturn(spitter);
         spittleService.getSpitterProfilePostAuthorize(id);
         verify(spittleRepository, times(1)).getSpitter(anyLong());
     }

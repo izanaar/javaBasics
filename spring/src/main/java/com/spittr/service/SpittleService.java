@@ -22,7 +22,7 @@ public class SpittleService {
 
 
     @PreAuthorize("hasRole('PRESIDENT') or #spitterId == 6")
-    @PostAuthorize("returnObject.id == 6")
+    @PostAuthorize("returnObject.id == 6 or principal.username == returnObject.username")
     public Spitter getSpitterProfilePostAuthorize(Long spitterId){
         System.out.println("Get profile ".concat(spitterId.toString()));
         return spittleRepository.getSpitter(spitterId);
