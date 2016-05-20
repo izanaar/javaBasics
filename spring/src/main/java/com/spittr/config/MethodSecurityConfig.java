@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.method.configuration.Globa
 import javax.sql.DataSource;
 
 @Configuration
-@EnableGlobalMethodSecurity
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
 
     @Autowired
