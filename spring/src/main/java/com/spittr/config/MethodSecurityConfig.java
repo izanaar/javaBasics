@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableGlobalMethodSecurity
-public class GlobalSecurityConfig extends GlobalMethodSecurityConfiguration {
+public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
 
     @Autowired
     @Qualifier("h2")

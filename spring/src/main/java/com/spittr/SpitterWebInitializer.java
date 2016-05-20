@@ -1,5 +1,8 @@
-package com.spittr.config;
+package com.spittr;
 
+import com.spittr.config.DataConfig;
+import com.spittr.config.RootConfig;
+import com.spittr.config.WebConfig;
 import com.spittr.config.data.DataSourcesConfig;
 import com.spittr.listener.Context;
 import com.spittr.listener.Session;

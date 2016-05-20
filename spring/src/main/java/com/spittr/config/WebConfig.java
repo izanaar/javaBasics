@@ -19,7 +19,7 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 
 @Configuration
 @EnableWebMvc
-/*@ComponentScan(basePackageClasses = HomeController.class)*/
+@ComponentScan(basePackageClasses = HomeController.class)
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean

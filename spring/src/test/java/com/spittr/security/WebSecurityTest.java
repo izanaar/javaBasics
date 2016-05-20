@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -17,12 +18,13 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {WebConfig.class, TestRootConfig.class, WebSecurityConfig.class})
+@ContextConfiguration(classes = {WebConfig.class, WebSecurityTestRootConfig.class, WebSecurityConfig.class})
 @WebAppConfiguration
-public class SecurityTest {
+public class WebSecurityTest {
 
     @Autowired
     private WebApplicationContext context;
@@ -38,10 +40,17 @@ public class SecurityTest {
     }
 
     @Test
+    public void testRequestWithoutDefinedUser() throws Exception {
+        mvc
+                .perform(get("/"))
+                .andExpect(status().isFound())
+                .andExpect(redirectedUrl("http://localhost/login"));
+    }
 
-    public void name() throws Exception {
-        mvc.perform(get("/")
-        .with(user("user")))
+    @Test
+    @WithMockUser(username = "user")
+    public void testRequestWithDefinedUser() throws Exception {
+        mvc.perform(get("/"))
                 .andExpect(status().isOk());
     }
 }

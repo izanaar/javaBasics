@@ -1,6 +1,7 @@
 package com.spittr.data;
 
 
+import com.spittr.model.Spitter;
 import com.spittr.model.Spittle;
 import org.springframework.stereotype.Component;
 
@@ -54,5 +55,10 @@ public class FictionalSpittleRepository implements SpittleRepository {
     @Override
     public Spittle saveSpittle(Spittle spittle) {
         return null;//TODO implement method
+    }
+
+    @Override
+    public Spitter getSpitter(Long id) {
+        return null;
     }
 }
