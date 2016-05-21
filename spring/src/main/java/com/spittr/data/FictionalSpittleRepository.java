@@ -43,6 +43,11 @@ public class FictionalSpittleRepository implements SpittleRepository {
     }
 
     @Override
+    public void deleteSpittles(List<Spittle> spittles) {
+
+    }
+
+    @Override
     public Spittle findOne(Long spittleId) {
         return spittles
                 .stream()

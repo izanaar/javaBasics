@@ -10,6 +10,8 @@ public interface SpittleRepository {
 
     List<Spittle> getSpittles(long max, int count);
 
+    void deleteSpittles(List<Spittle> spittles);
+
     Spittle findOne(Long spittleId);
 
     Spittle saveSpittle(Spittle spittle);
