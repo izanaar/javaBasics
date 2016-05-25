@@ -8,22 +8,41 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 public class Main {
     private static SessionFactory sessionFactory;
 
     public static void main(String[] args) {
+
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileInputStream("/home/traum/Documents/Dropbox/dbCredentials.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        Configuration configuration = new Configuration();
+        configuration.setProperty("connection.password", properties.getProperty("db.password"));
+
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure() // configures settings from hibernate.cfg.xml
+                .applySettings(configuration)
                 .build();
 
         sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 
-        Employee employee = new Employee(0, "Gibolt", "Tuscan", 44242);
+       /* Employee employee = new Employee(0, "Gibolt", "Tuscan", 44242);
 
-        saveEmployee(employee);
+        saveEmployee(employee);*/
 
-        System.out.println(getEmployee(employee.getId()));
+        System.out.println(getEmployee(1));
     }
 
     private static Employee getEmployee(int id){
