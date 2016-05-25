@@ -33,7 +33,7 @@ public class Main {
 
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure() // configures settings from hibernate.cfg.xml
-                .applySettings(configuration)
+                .configure(new File("/home/traum/Documents/Dropbox/hibernate.cfg.xml"))
                 .build();
 
         sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
@@ -43,6 +43,7 @@ public class Main {
         saveEmployee(employee);*/
 
         System.out.println(getEmployee(1));
+        sessionFactory.close();
     }
 
     private static Employee getEmployee(int id){
