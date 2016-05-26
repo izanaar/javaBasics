@@ -1,14 +1,27 @@
 package com.hbnt.mdl;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.util.Set;
 
+@Entity
+@Table(name = "EMPLOYEE")
 public class Employee {
 
+    @Id
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
     private int id;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "salary")
     private int salary;
-    private Set certificates;
 
     public Employee() {
     }
@@ -57,11 +70,4 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Set getCertificates() {
-        return certificates;
-    }
-
-    public void setCertificates(Set certificates) {
-        this.certificates = certificates;
-    }
 }

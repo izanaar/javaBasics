@@ -25,8 +25,5 @@
 
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
-
-        <mapping resource="Employee.hbm.xml"/>
-
     </session-factory>
 </hibernate-configuration>
