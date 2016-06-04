@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/boot/boot.iml" filepath="$PROJECT_DIR$/boot/boot.iml" />
       <module fileurl="file://$PROJECT_DIR$/hbnt/hbnt.iml" filepath="$PROJECT_DIR$/hbnt/hbnt.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hbnt/hbnt-practice.iml" filepath="$PROJECT_DIR$/hbnt/hbnt-practice.iml" />
       <module fileurl="file://$PROJECT_DIR$/j8fe/j8fe.iml" filepath="$PROJECT_DIR$/j8fe/j8fe.iml" />
       <module fileurl="file://$PROJECT_DIR$/jee/jee.iml" filepath="$PROJECT_DIR$/jee/jee.iml" />
       <module fileurl="file://$PROJECT_DIR$/jsonPractice/json-practice.iml" filepath="$PROJECT_DIR$/jsonPractice/json-practice.iml" />
