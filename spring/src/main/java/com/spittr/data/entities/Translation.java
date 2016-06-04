@@ -55,7 +55,20 @@ public class Translation implements Serializable{
 
     @Override
     public String toString() {
-        return inputText + ("(" + sourceLanguage + "-" + finalLanguage + ")");
+        return "Translation{" +
+                "id=" + id +
+                ", inputText='" + inputText + '\'' +
+                ", sourceLanguage='" + sourceLanguage + '\'' +
+                ", finalLanguage='" + finalLanguage + '\'' +
+                '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getInputText() {
@@ -66,12 +79,12 @@ public class Translation implements Serializable{
         this.inputText = inputText;
     }
 
-    public String getInputLanguage() {
+    public String getSourceLanguage() {
         return sourceLanguage;
     }
 
-    public void setInputLanguage(String inputLanguage) {
-        this.sourceLanguage = inputLanguage;
+    public void setSourceLanguage(String sourceLanguage) {
+        this.sourceLanguage = sourceLanguage;
     }
 
     public String getFinalLanguage() {

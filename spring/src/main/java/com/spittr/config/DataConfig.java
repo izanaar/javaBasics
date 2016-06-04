@@ -1,5 +1,6 @@
 package com.spittr.config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,10 +21,12 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
+@Profile("jpa-mysql")
 @EnableTransactionManagement
 public class DataConfig {
 
     @Bean
+    @Qualifier("mysql")
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setDatabase(Database.MYSQL);
