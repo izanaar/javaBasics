@@ -38,7 +38,7 @@ public class DataConfig {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(
-            DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
+            @Qualifier("chwin")DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
         LocalContainerEntityManagerFactoryBean emfb =
                 new LocalContainerEntityManagerFactoryBean();
         emfb.setDataSource(dataSource);
