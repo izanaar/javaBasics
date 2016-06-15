@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <import resource="auxXmlConf.xml" />
+
+    <bean id="xmlMainConfBean" class="com.spittr.model.SimpleBean">
+        <property name="strVal" value="Xml main config bean."/>
+    </bean>
+
+    <bean class="com.spittr.config.splitted.AuxConf" />
+
+</beans>
