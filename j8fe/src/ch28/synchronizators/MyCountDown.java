@@ -1,4 +1,4 @@
-package ch28;
+package ch28.synchronizators;
 
 import java.util.ArrayList;
 import java.util.Date;
