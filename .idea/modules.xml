@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/hbnt/hbnt.iml" filepath="$PROJECT_DIR$/hbnt/hbnt.iml" />
       <module fileurl="file://$PROJECT_DIR$/j8fe/j8fe.iml" filepath="$PROJECT_DIR$/j8fe/j8fe.iml" />
       <module fileurl="file://$PROJECT_DIR$/jee/jee.iml" filepath="$PROJECT_DIR$/jee/jee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jpa/jpa.iml" filepath="$PROJECT_DIR$/jpa/jpa.iml" />
       <module fileurl="file://$PROJECT_DIR$/jsonPractice/json-practice.iml" filepath="$PROJECT_DIR$/jsonPractice/json-practice.iml" />
       <module fileurl="file://$PROJECT_DIR$/log/log.iml" filepath="$PROJECT_DIR$/log/log.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring/spring.iml" filepath="$PROJECT_DIR$/spring/spring.iml" />
