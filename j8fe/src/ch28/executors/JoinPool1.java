@@ -2,45 +2,58 @@ package ch28.executors;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.TimeUnit;
 
-public class JoinPool1 implements TaskListener{
+public class JoinPool1{
 
-    List<MyTaskExecutor> myTasks = new ArrayList<>(5);
+    private static List<MyTask> myTasks = new ArrayList<>(5);
+    private static ForkJoinPool pool = ForkJoinPool.commonPool();
 
     public static void main(String[] args) throws InterruptedException {
-        JoinPool1 pool = new JoinPool1();
+        myTasks.add(new MyTask("Task 1",  5));
+        myTasks.add(new MyTask("Task 2",  2));
+        myTasks.add(new MyTask("Task 3",  4));
 
-        pool.myTasks.add(new MyTaskExecutor("Task 1", pool));
-        pool.myTasks.add(new MyTaskExecutor("Task 2", pool));
-        pool.myTasks.add(new MyTaskExecutor("Task 3", pool));
-
-
-
+        myTasks.forEach(pool::execute);
+        watch();
     }
 
-    @Override
-    public void acceptSuccess(String id) {
-        System.out.println("Success " + id);
+    private static void watch() {
+        for(int i = 0; i < 7; i++){
+            System.out.println("Task status:");
+            myTasks.forEach(JoinPool1::showStatus);
+            try {
+                TimeUnit.MILLISECONDS.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
+    private static void showStatus(MyTask task){
+        System.out.println("Task " + task.id + " is done:" + task.isDone());
+    }
+
 }
 
-class MyTaskExecutor extends RecursiveAction{
+class MyTask extends RecursiveAction {
 
-    private String id;
-    private TaskListener listener;
+    String id;
+    private int limit;
 
-    public MyTaskExecutor(String id, TaskListener listener) {
+    MyTask(String id, int limit) {
         this.id = id;
-        this.listener = listener;
+        this.limit = limit;
     }
+
 
     @Override
     protected void compute() {
         System.out.println("Task " + id + " has been started.");
 
-        for(int i = 0; i < 5; i++){
+        for (int i = 0; i < limit; i++) {
             try {
                 TimeUnit.MILLISECONDS.sleep(500);
             } catch (InterruptedException e) {
@@ -50,10 +63,5 @@ class MyTaskExecutor extends RecursiveAction{
         }
 
         System.out.println("Task " + id + " has been completed.");
-        listener.acceptSuccess(id);
     }
-}
-
-interface TaskListener{
-    void acceptSuccess(String id);
 }
