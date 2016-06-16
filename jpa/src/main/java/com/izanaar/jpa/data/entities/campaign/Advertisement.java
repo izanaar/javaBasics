@@ -2,24 +2,28 @@ package com.izanaar.jpa.data.entities.campaign;
 
 import com.izanaar.jpa.data.entities.Restaurant;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "advertisements")
 public class Advertisement {
 
     @Id
+    @GeneratedValue
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     private AdvGroup advertisementGroup;
 
     private Long advertisementId;
 
     private String advertisementName;
+
+    public Advertisement(AdvGroup advertisementGroup, Long advertisementId, String advertisementName) {
+        this.advertisementGroup = advertisementGroup;
+        this.advertisementId = advertisementId;
+        this.advertisementName = advertisementName;
+    }
 
     public Advertisement() {
     }

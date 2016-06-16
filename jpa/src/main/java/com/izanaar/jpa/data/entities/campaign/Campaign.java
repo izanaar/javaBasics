@@ -24,8 +24,6 @@ public class Campaign {
 
     private String campaignId;
 
-
-
     public Campaign() {
     }
 
