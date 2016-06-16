@@ -24,7 +24,7 @@ public class AdvGroup {
     @OneToOne
     private Campaign campaign;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Restaurant restaurant;
 
     @Override
