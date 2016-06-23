@@ -18,7 +18,7 @@ public class OrderedArray {
 
 
         values = new int[length];
-        values[0] = 55;
+        /*values[0] = 55;
         values[1] = 48;
         values[2] = 51;
         values[3] = 24;
@@ -33,7 +33,24 @@ public class OrderedArray {
         values[12] = 7;
         values[13] = 28;
         values[14] = 39;
-        values[15] = 2;
+        values[15] = 2;*/
+
+        values[0] = 2;
+        values[1] = 4;
+        values[2] = 7;
+        values[3] = 13;
+        values[4] = 18;
+        values[5] = 22;
+        values[6] = 25;
+        values[7] = 29;
+        values[8] = 33;
+        values[9] = 15;
+        values[10] = 23;
+        values[11] = 31;
+        values[12] = 27;
+        values[13] = 39;
+        values[14] = 42;
+        values[15] = 3;
     }
 
     public int find(int value) {
@@ -125,6 +142,38 @@ public class OrderedArray {
         values[i2] = buffer;
     }
 
+    private void sortInsert() {
+        int startIndex = 8;
+
+        for (int i = startIndex + 1; i < values.length; i++) {
+            int pasteValue = values[i];
+            int pasteIndex = getPasteIndex(pasteValue, i - 1);
+            if(pasteIndex == -1){
+                continue;
+            }
+            shiftArray(pasteIndex, i);
+            values[pasteIndex] = pasteValue;
+
+        }
+
+    }
+
+    private int getPasteIndex(int value, int sortedEndIndex) {
+        for (int i = 0; i <= sortedEndIndex; i++) {
+            if (values[i] > value)
+                return i;
+        }
+
+        return -1;
+        //throw new ArrayIndexOutOfBoundsException("Couldn't get paste index. Value: " + value + ", array: " + value);
+    }
+
+    private void shiftArray(int start, int end) {
+        for (int i = end - 1; i >= start; i--) {
+            values[i + 1] = values[i];
+        }
+    }
+
     private int[] get() {
         return values;
     }
@@ -138,7 +187,8 @@ public class OrderedArray {
         array.showValues();
 
         // array.sortBubble();
-        array.sortSelect();
+        //array.sortSelect();
+        array.sortInsert();
         System.out.println("Sorted array:");
         array.showValues();
 
