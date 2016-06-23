@@ -18,7 +18,7 @@ public class OrderedArray {
 
 
         values = new int[length];
-        /*values[0] = 55;
+        values[0] = 55;
         values[1] = 48;
         values[2] = 51;
         values[3] = 24;
@@ -33,9 +33,9 @@ public class OrderedArray {
         values[12] = 7;
         values[13] = 28;
         values[14] = 39;
-        values[15] = 2;*/
+        values[15] = 2;
 
-        values[0] = 2;
+        /*values[0] = 2;
         values[1] = 4;
         values[2] = 7;
         values[3] = 13;
@@ -50,7 +50,7 @@ public class OrderedArray {
         values[12] = 27;
         values[13] = 39;
         values[14] = 42;
-        values[15] = 3;
+        values[15] = 3;*/
     }
 
     public int find(int value) {
@@ -142,18 +142,15 @@ public class OrderedArray {
         values[i2] = buffer;
     }
 
-    private void sortInsert() {
-        int startIndex = 8;
-
-        for (int i = startIndex + 1; i < values.length; i++) {
-            int pasteValue = values[i];
-            int pasteIndex = getPasteIndex(pasteValue, i - 1);
-            if(pasteIndex == -1){
+    private void sortInsert(int startIndex) {
+        for (int i = startIndex; i < values.length; i++) {
+            int insertVal = values[i];
+            int insertIndex = getPasteIndex(insertVal, i - 1);
+            if(insertIndex == -1){
                 continue;
             }
-            shiftArray(pasteIndex, i);
-            values[pasteIndex] = pasteValue;
-
+            shiftArray(insertIndex, i);
+            values[insertIndex] = insertVal;
         }
 
     }
@@ -163,15 +160,11 @@ public class OrderedArray {
             if (values[i] > value)
                 return i;
         }
-
         return -1;
-        //throw new ArrayIndexOutOfBoundsException("Couldn't get paste index. Value: " + value + ", array: " + value);
     }
 
     private void shiftArray(int start, int end) {
-        for (int i = end - 1; i >= start; i--) {
-            values[i + 1] = values[i];
-        }
+        System.arraycopy(values, start, values, start + 1, end - start);
     }
 
     private int[] get() {
@@ -188,7 +181,7 @@ public class OrderedArray {
 
         // array.sortBubble();
         //array.sortSelect();
-        array.sortInsert();
+        array.sortInsert(0);
         System.out.println("Sorted array:");
         array.showValues();
 
