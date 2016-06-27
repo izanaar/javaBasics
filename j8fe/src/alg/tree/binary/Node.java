@@ -1,0 +1,22 @@
+package alg.tree.binary;
+
+public class Node {
+
+    int key;
+    private String value;
+
+    private Node left;
+    private Node right;
+
+    public Node(int key, String value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public Node(int key, String value, Node left, Node right) {
+        this.key = key;
+        this.value = value;
+        this.left = left;
+        this.right = right;
+    }
+}

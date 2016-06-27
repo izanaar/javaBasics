@@ -28,12 +28,12 @@ public class OrderedArray {
         values[7] = 9;
         values[8] = 17;
         values[9] = 32;
-        values[10] = 18;
+        /*values[10] = 18;
         values[11] = 4;
         values[12] = 7;
         values[13] = 28;
         values[14] = 39;
-        values[15] = 2;
+        values[15] = 2;*/
 
         /*values[0] = 2;
         values[1] = 4;
@@ -146,7 +146,7 @@ public class OrderedArray {
         for (int i = startIndex; i < values.length; i++) {
             int insertVal = values[i];
             int insertIndex = getPasteIndex(insertVal, i - 1);
-            if(insertIndex == -1){
+            if (insertIndex == -1) {
                 continue;
             }
             shiftArray(insertIndex, i);
@@ -167,12 +167,40 @@ public class OrderedArray {
         System.arraycopy(values, start, values, start + 1, end - start);
     }
 
+    public void sortShell() {
+        int inner, outer;
+        long temp;
+        int h = 1;
+        while (h <= length / 3) {
+            h = h * 3 + 1;
+        }
+
+        while (h > 0) {
+
+            for (outer = h; outer < length; outer++) {
+                temp = values[outer];
+                inner = outer;
+
+                while (inner > h - 1 && values[inner - h] >= temp) {
+                    values[inner] = values[inner - h];
+                    inner -= h;
+                }
+
+                values[inner] = (int) temp;
+            }
+            h = (h - 1) / 3;
+        }
+    }
+
     private int[] get() {
         return values;
     }
 
     public static void main(String[] args) {
-        int length = 16;
+        int length =
+                //16
+                10
+                ;
         OrderedArray array = new OrderedArray(length);
 
 
@@ -181,7 +209,8 @@ public class OrderedArray {
 
         // array.sortBubble();
         //array.sortSelect();
-        array.sortInsert(0);
+        //array.sortInsert(0);
+        array.sortShell();
         System.out.println("Sorted array:");
         array.showValues();
 
