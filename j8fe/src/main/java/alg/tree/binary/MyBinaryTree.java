@@ -75,16 +75,16 @@ class MyBinaryTree {
 
     private Node getRemovableRoot(Node cRoot, int key) {
         if (cRoot.key > key) {
-            if (cRoot.left.key == key) {
+            if (cRoot.left != null && cRoot.left.key == key) {
                 return cRoot;
             } else {
-                return getRemovableRoot(cRoot.left, key);
+                return cRoot.left == null ? null : getRemovableRoot(cRoot.left, key);
             }
         } else {
-            if (cRoot.right.key == key) {
+            if (cRoot.right != null && cRoot.right.key == key) {
                 return cRoot;
             } else {
-                return getRemovableRoot(cRoot.right, key);
+                return cRoot.right == null ? null : getRemovableRoot(cRoot.right, key);
             }
         }
     }

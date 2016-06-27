@@ -44,8 +44,13 @@ public class MyBinaryTreeTest {
         assertNull(tree.delete(26));
 
         assertEquals(node32, node30.right);
+    }
 
-        int k = 2;
+    @Test
+    public void testInsert() throws Exception {
+        Node newNode = new Node(36, "New test node");
 
+        tree.insert(newNode);
+        assertEquals(tree.find(35).right, newNode);
     }
 }
