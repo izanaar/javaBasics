@@ -2,9 +2,9 @@ package alg.lists;
 
 import java.util.List;
 
-public class MyLinkedList<T> {
+class MyLinkedList<T> {
 
-    public ListItem<T> first;
+    private ListItem<T> first;
 
     public void insertFirst(ListItem<T> item){
         if(first == null){

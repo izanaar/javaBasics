@@ -1,8 +1,5 @@
 package auxillary;
 
-/**
- * Created by ierus on 7/17/15.
- */
 public class CollectionsViewer {
     public static String testDirPath = "/home/work/java/IOTest";
     public static void viewArray(String[] array){

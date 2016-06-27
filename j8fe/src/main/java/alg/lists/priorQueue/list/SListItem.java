@@ -1,8 +1,8 @@
 package alg.lists.priorQueue.list;
 
-public class SListItem implements Comparable{
+class SListItem implements Comparable{
 
-    public int value;
+    private int value;
     public SListItem next;
 
     @Override

@@ -1,5 +1,5 @@
 package test;
 
-public interface BoolLambda {
+interface BoolLambda {
     boolean checkout();
 }

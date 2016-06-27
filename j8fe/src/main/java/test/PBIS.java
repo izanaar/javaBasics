@@ -1,8 +1,5 @@
 package test;
 
-/**
- * Created by ierus on 7/19/15.
- */
 public class PBIS {
     public static void main(String[] args) {
         /*String s = "if (a == 4) a = 0;\n";

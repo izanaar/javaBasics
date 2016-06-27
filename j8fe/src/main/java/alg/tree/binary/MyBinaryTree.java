@@ -1,17 +1,17 @@
 package alg.tree.binary;
 
-public class MyBinaryTree {
+class MyBinaryTree {
 
     private Node root;
 
     public MyBinaryTree() {
     }
 
-    public MyBinaryTree(Node root) {
+    MyBinaryTree(Node root) {
         this.root = root;
     }
 
-    private Node find(int key) {
+    Node find(int key) {
         return findRec(root, key);
     }
 
@@ -31,7 +31,7 @@ public class MyBinaryTree {
         }
     }
 
-    private void insert(Node newNode) {
+    void insert(Node newNode) {
         if (root == null) {
             root = newNode;
             return;
@@ -55,16 +55,21 @@ public class MyBinaryTree {
         }
     }
 
-    private Node delete(int key) {
+    Node delete(int key) {
         Node removableParent = getRemovableRoot(root, key);
-        if(removableParent == null){
+        if (removableParent == null) {
             return null;
         }
 
-        if(removableParent.key > key)
-            return removeLeftChild(removableParent, removableParent.left);
-        else
-            return removeRightChild(removableParent, removableParent.right);
+        if (removableParent.key > key) {
+            Node removable = removableParent.left;
+            removableParent.left = removeChild(removable);
+            return removable;
+        } else {
+            Node removable = removableParent.right;
+            removableParent.right = removeChild(removable);
+            return removable;
+        }
 
     }
 
@@ -84,40 +89,13 @@ public class MyBinaryTree {
         }
     }
 
-    private Node removeLeftChild(Node removableParent, Node removable) {
+    private Node removeChild(Node removable) {
         Node smallestChild = getSmallestChild(removable);
-        removableParent.left = smallestChild.equals(removable) ? null : getSmallestChild(removable);
+        removable = smallestChild.equals(removable) ? null : smallestChild;
         return removable;
     }
 
-    private Node removeRightChild(Node removableParent, Node removable) {
-        Node smallestChild = getSmallestChild(removable);
-        removableParent.right = smallestChild.equals(removable) ? null : getSmallestChild(removable);
-        return removable;
-    }
-
-    private Node getSmallestChild(Node cRoot){
+    private Node getSmallestChild(Node cRoot) {
         return cRoot.left == null ? cRoot : getSmallestChild(cRoot.left);
     }
-
-    public static void main(String[] args) {
-        MyBinaryTree tree = new MyBinaryTree(new Node(27, "Root"));
-        tree.insert(new Node(17, "One more"));
-        tree.insert(new Node(30, "One more"));
-        tree.insert(new Node(35, "One more"));
-        tree.insert(new Node(32, "One more"));
-        tree.insert(new Node(10, "One more"));
-        tree.insert(new Node(25, "One more"));
-        tree.insert(new Node(20, "One more"));
-        tree.insert(new Node(20, "One more"));
-        tree.insert(new Node(9, "One more"));
-
-        System.out.println(tree.find(20) == null ? "Node with key 20 wasn't found in the tree." : "Node with key 20 was found in the tree.");
-        System.out.println(tree.find(21) == null ? "Node with key 21 wasn't found in the tree." : "Node with key 21 was found in the tree.");
-
-        tree.delete(35);
-
-        int k = 2;
-    }
-
 }
