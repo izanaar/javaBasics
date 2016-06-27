@@ -5,8 +5,8 @@ public class Node {
     int key;
     private String value;
 
-    private Node left;
-    private Node right;
+    Node left;
+    Node right;
 
     public Node(int key, String value) {
         this.key = key;
