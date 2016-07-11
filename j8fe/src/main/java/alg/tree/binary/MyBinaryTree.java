@@ -98,4 +98,8 @@ class MyBinaryTree {
     private Node getSmallestChild(Node cRoot) {
         return cRoot.left == null ? cRoot : getSmallestChild(cRoot.left);
     }
+
+    public Node getRoot() {
+        return root;
+    }
 }
