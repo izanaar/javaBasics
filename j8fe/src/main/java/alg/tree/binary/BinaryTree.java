@@ -1,13 +1,13 @@
 package alg.tree.binary;
 
-public class MyBinaryTree {
+public class BinaryTree {
 
     private Node root;
 
-    public MyBinaryTree() {
+    public BinaryTree() {
     }
 
-    MyBinaryTree(Node root) {
+    BinaryTree(Node root) {
         this.root = root;
     }
 

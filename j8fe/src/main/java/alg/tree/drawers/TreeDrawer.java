@@ -1,23 +1,25 @@
 package alg.tree.drawers;
 
-import alg.tree.binary.MyBinaryTree;
 import alg.tree.binary.Node;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public abstract class TreeDrawer {
 
     private int depth;
-    private MyBinaryTree tree;
-    private Map<Integer, List<Integer>> values;
+    private Node root;
+    private Map<Integer, List<Node>> values;
 
-    public TreeDrawer(MyBinaryTree tree) {
-        this.tree = tree;
+    public TreeDrawer(Node root) {
+        this.root = root;
         values = new HashMap<>();
     }
 
     public void drawTree() {
-        defineDepth(tree.getRoot(), 1);
+        defineDepth(root, 1);
         defineValues();
         values.keySet().forEach(this::showRow);
     }
@@ -32,7 +34,7 @@ public abstract class TreeDrawer {
 
     private void defineValues() {
         initValuesMap();
-        fillValues(tree.getRoot(), 1);
+        fillValues(root, 1);
     }
 
     private int defineFirstShift(int level) {
@@ -58,11 +60,11 @@ public abstract class TreeDrawer {
             return;
         }
 
-        List<Integer> currValues = values.get(i);
+        List<Node> currValues = values.get(i);
         if (node == null) {
             fillEmptyChildren(i);
         } else {
-            currValues.add(node.getKey());
+            currValues.add(node);
             fillValues(node.getLeft(), i + 1);
             fillValues(node.getRight(), i + 1);
         }
@@ -72,7 +74,7 @@ public abstract class TreeDrawer {
 
     private void fillEmptyChildren(int level) {
         if (level >= depth) {
-            List<Integer> currLvlVals = values.get(level);
+            List<Node> currLvlVals = values.get(level);
             if (depth != level) {
                 fillEmptyChildren(level + 1);
                 fillEmptyChildren(level + 1);
@@ -82,11 +84,11 @@ public abstract class TreeDrawer {
     }
 
     private void showRow(int level) {
-        List<Integer> currVals = values.get(level);
+        List<Node> currVals = values.get(level);
         int shift = defineShift(level);
         printSpaces(defineFirstShift(level));
         for (int i = 0; i < currVals.size(); i++) {
-            Integer currValue = currVals.get(i);
+            Node currValue = currVals.get(i);
 
             if(currValue != null){
                 printValue(currValue);
@@ -105,5 +107,5 @@ public abstract class TreeDrawer {
 
     abstract void printSpaces(int amount);
 
-    abstract void printValue(int value);
+    abstract void printValue(Node node);
 }

@@ -1,10 +1,10 @@
 package alg.tree.drawers;
 
-import alg.tree.binary.MyBinaryTree;
+import alg.tree.binary.Node;
 
 public class BinarySearchTreeDrawer extends TreeDrawer {
-    public BinarySearchTreeDrawer(MyBinaryTree tree) {
-        super(tree);
+    public BinarySearchTreeDrawer(Node node) {
+        super(node);
     }
 
     @Override
@@ -15,8 +15,8 @@ public class BinarySearchTreeDrawer extends TreeDrawer {
     }
 
     @Override
-    void printValue(int value) {
+    void printValue(Node node) {
+        int value = node.getKey();
         System.out.print(value < 10 ? "0" + value : value);
     }
-
 }

@@ -1,5 +1,6 @@
-package alg.tree.binary;
+package alg.tree.drawers;
 
+import alg.tree.binary.Node;
 import alg.tree.drawers.BinarySearchTreeDrawer;
 import alg.tree.drawers.TreeDrawer;
 import org.junit.Before;
@@ -10,9 +11,8 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class TreeDrawerTest {
+public class BinarySearchTreeDrawerTest {
 
-    private MyBinaryTree tree;
     private TreeDrawer drawer;
 
     @Before
@@ -32,9 +32,8 @@ public class TreeDrawerTest {
 
         Node root = new Node(50, "root", node1lvl2, node2lvl2);
 
-        tree = new MyBinaryTree(root);
 
-        drawer = new BinarySearchTreeDrawer(tree);
+        drawer = new BinarySearchTreeDrawer(root);
     }
 
     @Test

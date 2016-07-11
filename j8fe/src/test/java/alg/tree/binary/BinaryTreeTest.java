@@ -8,15 +8,15 @@ import java.util.Map;
 
 import static org.junit.Assert.*;
 
-public class MyBinaryTreeTest {
+public class BinaryTreeTest {
 
     private Map<Integer, Node> nodeMap;
-    private MyBinaryTree tree;
+    private BinaryTree tree;
 
     @Before
     public void setUp() throws Exception {
         nodeMap = new HashMap<Integer, Node>(30);
-        tree = new MyBinaryTree(new Node(27, "Root"));
+        tree = new BinaryTree(new Node(27, "Root"));
 
         tree.insert(new Node(17, "One more"));
         tree.insert(new Node(30, "One more"));
