@@ -8,14 +8,11 @@ import java.util.*;
 public abstract class TreeDrawer {
 
     private int depth;
-    private int width;
     private MyBinaryTree tree;
     private Map<Integer, List<Integer>> values;
 
     public TreeDrawer(MyBinaryTree tree) {
         this.tree = tree;
-        depth = 0;
-        width = 0;
         values = new HashMap<>();
     }
 
@@ -74,9 +71,7 @@ public abstract class TreeDrawer {
     }
 
     private void fillEmptyChildren(int level) {
-        if (level > depth) {
-            return;
-        } else {
+        if (level >= depth) {
             List<Integer> currLvlVals = values.get(level);
             if (depth != level) {
                 fillEmptyChildren(level + 1);
