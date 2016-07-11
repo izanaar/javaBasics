@@ -1,5 +1,7 @@
 package alg.tree.binary;
 
+import alg.tree.drawers.BinarySearchTreeDrawer;
+import alg.tree.drawers.TreeDrawer;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,7 +34,7 @@ public class TreeDrawerTest {
 
         tree = new MyBinaryTree(root);
 
-        drawer = new TreeDrawer(tree);
+        drawer = new BinarySearchTreeDrawer(tree);
     }
 
     @Test

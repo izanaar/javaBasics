@@ -1,6 +1,6 @@
 package alg.tree.binary;
 
-class Node {
+public class Node {
 
     int key;
     private String value;
@@ -18,6 +18,22 @@ class Node {
         this.value = value;
         this.left = left;
         this.right = right;
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public Node getLeft() {
+        return left;
+    }
+
+    public Node getRight() {
+        return right;
     }
 
     @Override

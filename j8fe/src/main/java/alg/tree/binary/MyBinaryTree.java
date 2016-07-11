@@ -1,6 +1,6 @@
 package alg.tree.binary;
 
-class MyBinaryTree {
+public class MyBinaryTree {
 
     private Node root;
 

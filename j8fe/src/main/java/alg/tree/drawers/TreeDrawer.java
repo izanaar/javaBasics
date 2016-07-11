@@ -1,44 +1,41 @@
-package alg.tree.binary;
+package alg.tree.drawers;
+
+import alg.tree.binary.MyBinaryTree;
+import alg.tree.binary.Node;
 
 import java.util.*;
 
-class TreeDrawer {
+public abstract class TreeDrawer {
 
     private int depth;
     private int width;
     private MyBinaryTree tree;
     private Map<Integer, List<Integer>> values;
 
-    TreeDrawer(MyBinaryTree tree) {
+    public TreeDrawer(MyBinaryTree tree) {
         this.tree = tree;
         depth = 0;
         width = 0;
         values = new HashMap<>();
     }
 
-    void drawTree() {
+    public void drawTree() {
         defineDepth(tree.getRoot(), 1);
         defineValues();
         values.keySet().forEach(this::showRow);
     }
 
-    private void defineDepth(Node root, int level) {
-        if (root != null) {
+    private void defineDepth(Node node, int level) {
+        if (node != null) {
             depth = level;
-            defineDepth(root.left, level + 1);
-            defineDepth(root.right, level + 1);
+            defineDepth(node.getLeft(), level + 1);
+            defineDepth(node.getRight(), level + 1);
         }
     }
 
     private void defineValues() {
         initValuesMap();
         fillValues(tree.getRoot(), 1);
-    }
-
-    private void printSpaces(int amount) {
-        for (int i = 0; i < amount; i++) {
-            System.out.print("--");
-        }
     }
 
     private int defineFirstShift(int level) {
@@ -68,9 +65,9 @@ class TreeDrawer {
         if (node == null) {
             fillEmptyChildren(i);
         } else {
-            currValues.add(node.key);
-            fillValues(node.left, i + 1);
-            fillValues(node.right, i + 1);
+            currValues.add(node.getKey());
+            fillValues(node.getLeft(), i + 1);
+            fillValues(node.getRight(), i + 1);
         }
 
 
@@ -97,7 +94,7 @@ class TreeDrawer {
             Integer currValue = currVals.get(i);
 
             if(currValue != null){
-                System.out.print(currValue < 10 ? "0" + currValue : String.valueOf(currValue));
+                printValue(currValue);
             }else {
                 printSpaces(1);
             }
@@ -111,4 +108,7 @@ class TreeDrawer {
         System.out.println();
     }
 
+    abstract void printSpaces(int amount);
+
+    abstract void printValue(int value);
 }
