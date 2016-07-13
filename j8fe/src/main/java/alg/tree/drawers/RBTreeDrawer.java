@@ -2,9 +2,6 @@ package alg.tree.drawers;
 
 import alg.tree.binary.Node;
 import alg.tree.rb.RBNode;
-import alg.tree.rb.RBTree;
-
-import java.util.StringJoiner;
 
 public class RBTreeDrawer extends TreeDrawer{
 
