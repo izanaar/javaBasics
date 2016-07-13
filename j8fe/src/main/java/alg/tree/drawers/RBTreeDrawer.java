@@ -14,7 +14,9 @@ public class RBTreeDrawer extends TreeDrawer{
 
     @Override
     void printSpaces(int amount) {
-        System.out.print("---");
+        for (int i = 0; i < amount; i++) {
+            System.out.print("---");
+        }
     }
 
     @Override
