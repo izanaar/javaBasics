@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Main {
 
-    static Logger     root = (Logger) LoggerFactory.getLogger("ROOT"),
+    private static Logger     root = (Logger) LoggerFactory.getLogger("ROOT"),
                     logger = (Logger) LoggerFactory.getLogger(Main.class),
                 descendant = (Logger) LoggerFactory.getLogger(Descendant.class);
 

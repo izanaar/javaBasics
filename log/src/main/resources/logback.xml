@@ -1,4 +1,4 @@
-<configuration debug="true" scan="true" scanPeriod="5 seconds" packagingData="true">
+<configuration>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -18,6 +18,6 @@
 
 
     <logger name="ROOT.INH">
-        <appender-ref ref="MSG"></appender-ref>
+        <appender-ref ref="MSG"/>
     </logger>
 </configuration>
