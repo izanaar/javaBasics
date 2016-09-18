@@ -140,8 +140,28 @@ public class MyArray {
         System.arraycopy(values, start, values, start + 1, end - start);
     }
 
-    public void sortShell() {
+    void sortShell() {
+        int inner, outer;
+        long temp;
+        int h = 1;
+        while (h <= length / 3) {
+            h = h * 3 + 1;
+        }
 
+        while (h > 0) {
+
+            for (outer = h; outer < length; outer++) {
+                temp = values[outer];
+                inner = outer;
+
+                while (inner > h - 1 && values[inner - h] >= temp) {
+                    values[inner] = values[inner - h];
+                    inner -= h;
+                }
+                values[inner] = (int) temp;
+            }
+            h = (h - 1) / 3;
+        }
     }
 
     public void setValues(int[] values) {

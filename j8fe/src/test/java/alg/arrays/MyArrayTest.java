@@ -51,7 +51,7 @@ public class MyArrayTest {
     }
 
     @Test
-    public void testShallSort() throws Exception {
+    public void testShellSort() throws Exception {
         int[] sortedArray = Arrays.copyOf(array.getValues(), array.getValues().length);
         Arrays.sort(sortedArray);
 
