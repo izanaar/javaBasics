@@ -1,1 +1,0 @@
-INSERT INTO USERS VALUES (1, 'descr',' login','password','title');
