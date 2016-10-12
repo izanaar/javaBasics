@@ -7,11 +7,12 @@ public class RBNode extends Node {
     private boolean isRed;
 
     public RBNode(int key, String value, boolean isRed) {
-        super(key, value, null, null);
+        this(key, value, isRed, null, null);
     }
 
     public RBNode(int key, String value, boolean isRed, RBNode left, RBNode right) {
         super(key, value, left, right);
+        this.isRed = isRed;
     }
 
     public boolean isRed() {

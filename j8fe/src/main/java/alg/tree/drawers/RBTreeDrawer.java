@@ -2,9 +2,6 @@ package alg.tree.drawers;
 
 import alg.tree.binary.Node;
 import alg.tree.rb.RBNode;
-import alg.tree.rb.RBTree;
-
-import java.util.StringJoiner;
 
 public class RBTreeDrawer extends TreeDrawer{
 
@@ -14,7 +11,9 @@ public class RBTreeDrawer extends TreeDrawer{
 
     @Override
     void printSpaces(int amount) {
-        System.out.print("---");
+        for (int i = 0; i < amount; i++) {
+            System.out.print("---");
+        }
     }
 
     @Override
