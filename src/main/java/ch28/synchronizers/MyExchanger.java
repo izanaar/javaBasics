@@ -1,4 +1,4 @@
-package ch28.synchronizators;
+package ch28.synchronizers;
 
 import java.util.concurrent.Exchanger;
 
