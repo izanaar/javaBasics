@@ -8,12 +8,12 @@ import java.util.concurrent.CountDownLatch;
 public class MyCountDown {
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(4);
-        ArrayList<Vehicle> vehiches = new ArrayList<>(3);
+        ArrayList<Vehicle> vehicles = new ArrayList<>(3);
         Random r = new Random(new Date().getTime());
-        vehiches.add(new Vehicle(latch,r,2));
-        vehiches.add(new Vehicle(latch,r,1));
-        vehiches.add(new Vehicle(latch,r,3));
-        vehiches.forEach(Vehicle::prepare);
+        vehicles.add(new Vehicle(latch,r,2));
+        vehicles.add(new Vehicle(latch,r,1));
+        vehicles.add(new Vehicle(latch,r,3));
+        vehicles.forEach(Vehicle::prepare);
 
         do{
             System.out.println("waiting for vehicles to prepare...");
